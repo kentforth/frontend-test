@@ -1,0 +1,28 @@
+@include ui-desktop-only {
+  .home {
+    @media (min-width: $laptop) {
+      .container {
+        padding: 40px 0;
+      }
+
+      &__content {
+        width: 80%;
+        margin: 0 40px;
+      }
+
+      &__link {
+        font-size: 40px;
+        line-height: 32px;
+      }
+
+      &__poster {
+        width: 470px;
+      }
+
+      &__logo {
+        width: 600px;
+        margin: 120px 0;
+      }
+    }
+  }
+}

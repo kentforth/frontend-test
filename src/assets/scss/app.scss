@@ -1,0 +1,85 @@
+@import "variables";
+@import "fonts";
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: $black;
+  color: $white;
+  font-family: 'ArtifactElement', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: $white;
+}
+
+button {
+  width: max-content;
+  height: max-content;
+  outline: none;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  color: $white;
+}
+
+.container {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.form {
+  input {
+    outline: none;
+    font-size: 30px;
+    background: transparent;
+    border: none;
+    padding: 10px 24px;
+    color: $white;
+    font-family: 'ArtifactElement', sans-serif;
+
+    box-shadow: rgba(0, 0, 0, 0.5) 1px 2px 5px 0 inset;
+
+    &::placeholder {
+      color: $grey;
+    }
+  }
+
+  &__error {
+    color: $red;
+  }
+}
+
+

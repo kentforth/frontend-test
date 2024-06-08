@@ -1,0 +1,75 @@
+<script lang="ts">
+export default {
+  name: 'Home'
+}
+</script>
+
+<script setup lang="ts">
+const topLinks = [
+  {
+    id: 1,
+    link: 'philosophy',
+    title: 'во что мы верим',
+    subTitle: '[наша философия]'
+  },
+  {
+    id: 2,
+    link: 'details',
+    title: 'урочище',
+    subTitle: '[подробно]'
+  },
+  {
+    id: 3,
+    link: 'getThere',
+    title: 'где мы есть',
+    subTitle: '[как добраться]'
+  }
+]
+
+const bottomLinks = [
+  {
+    id: 1,
+    link: 'registration',
+    title: 'ринуться',
+    subTitle: '[регистрация]'
+  },
+  {
+    id: 2,
+    link: 'sponsors',
+    title: 'кто в деле',
+    subTitle: '[спонсоры]'
+  },
+  {
+    id: 3,
+    link: 'heritage',
+    title: 'припомнить',
+    subTitle: '[наследие]'
+  }
+]
+</script>
+
+<template>
+  <div class="home container">
+    <img src="@/assets/images/home/poster.png" alt="poster" class="home__poster">
+
+    <div class="home__content">
+      <div class="home__top">
+        <RouterLink :to="{name: link.link}" class="home__link" v-for="link in topLinks" :key="link.id">
+          {{ link.title }}
+          <p>{{ link.subTitle }}</p>
+        </RouterLink>
+      </div>
+      <img src="@/assets/images/home/logo.png" alt="logo" class="home__logo">
+      <div class="home__bottom">
+        <RouterLink :to="{name: link.link}" class="home__link" v-for="link in bottomLinks" :key="link.id">
+          {{ link.title }}
+          <p>{{ link.subTitle }}</p>
+        </RouterLink>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style lang="scss" scoped src="./Home.scss"></style>
+<style lang="scss" scoped src="./Home.mobile.scss"></style>
+<style lang="scss" scoped src="./Home.desktop.scss"></style>
