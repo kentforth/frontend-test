@@ -14,6 +14,16 @@
 
     &__link {
       font-size: 20px;
+
+      p {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: $mobile-portrait - 1px) {
+      &__poster {
+        width: 250px;
+      }
     }
 
     @media (max-width: $mobile) {
