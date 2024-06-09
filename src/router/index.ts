@@ -26,28 +26,12 @@ const router = createRouter({
       component: () => import('../views/Home/Home.vue')
     },
     {
-      path: '/philosophy',
-      meta: {
-        title: 'Наша Философия'
-      },
-      name: 'philosophy',
-      component: () => import('../views/Philosophy.vue')
-    },
-    {
       path: '/details',
       meta: {
         title: 'Подробно'
       },
       name: 'details',
-      component: () => import('../views/Details.vue')
-    },
-    {
-      path: '/get-there',
-      meta: {
-        title: 'Как добраться'
-      },
-      name: 'getThere',
-      component: () => import('../views/GetThere.vue')
+      component: () => import('../views/Details/Details.vue')
     },
     {
       path: '/registration',

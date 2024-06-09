@@ -1,0 +1,39 @@
+@include ui-mobile-only {
+  .details {
+    flex-direction: column;
+    align-items: center;
+
+    &__logo {
+      img {
+        width: 400px;
+      }
+    }
+
+    &__links {
+      margin-top: 50px;
+    }
+
+    &__divider {
+      width: 100%;
+      height: 5px;
+      margin: 16px 0;
+    }
+
+    @media (max-width: $mobile) {
+      &__logo {
+        img {
+          width: 300px;
+        }
+      }
+
+      &__links {
+        font-size: 16px;
+        margin-top: 20px;
+
+        button {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

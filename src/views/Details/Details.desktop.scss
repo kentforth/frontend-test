@@ -1,0 +1,15 @@
+@include ui-desktop-only {
+  .details {
+    @media (min-width: $desktop) {
+      &__logo {
+        img {
+          width: 680px;
+        }
+      }
+
+      &__divider {
+        margin: 0 60px 0 100px;
+      }
+    }
+  }
+}

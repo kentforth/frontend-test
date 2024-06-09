@@ -8,19 +8,19 @@ export default {
 const topLinks = [
   {
     id: 1,
-    link: 'philosophy',
+    page: '1',
     title: 'во что мы верим',
     subTitle: '[наша философия]'
   },
   {
     id: 2,
-    link: 'details',
+    page: '2',
     title: 'урочище',
     subTitle: '[подробно]'
   },
   {
     id: 3,
-    link: 'getThere',
+    page: '3',
     title: 'где мы есть',
     subTitle: '[как добраться]'
   }
@@ -54,12 +54,12 @@ const bottomLinks = [
 
     <div class="home__content">
       <div class="home__top">
-        <RouterLink :to="{name: link.link}" class="home__link" v-for="link in topLinks" :key="link.id">
+        <RouterLink :to="{ name: 'details', query: { page: link.page}}" class="home__link" v-for="link in topLinks" :key="link.id">
           {{ link.title }}
           <p>{{ link.subTitle }}</p>
         </RouterLink>
       </div>
-      <img src="@/assets/images/home/logo.png" alt="logo" class="home__logo">
+      <img src="@/assets/images/logo.png" alt="logo" class="home__logo">
       <div class="home__bottom">
         <RouterLink :to="{name: link.link}" class="home__link" v-for="link in bottomLinks" :key="link.id">
           {{ link.title }}
