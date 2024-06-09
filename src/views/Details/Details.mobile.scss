@@ -19,6 +19,14 @@
       margin: 16px 0;
     }
 
+    @media (max-width: $mobile-portrait) {
+      &__logo {
+        img {
+          width: 350px;
+        }
+      }
+    }
+
     @media (max-width: $mobile) {
       &__logo {
         img {
