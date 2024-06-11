@@ -5,6 +5,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import rat from '@/assets/images/sound/rat.png'
+import amanita from '@/assets/images/sound/amanita.png'
 import sleepwalker from '@/assets/images/sound/sleepwalker.png'
 import dragonBlood from '@/assets/images/sound/dragon-blood.png'
 
@@ -20,6 +22,18 @@ const bands = [
     name: 'sleepwalker',
     text: 'Sed ut perspiciatis, unde omnis iste natus error sit vole dicta sunt, explicabo.',
     image: sleepwalker
+  },
+  {
+    id: 3,
+    name: 'amanita',
+    text: 'Sed ut perspiciatis, unde omnis iste natus error sit vole dicta sunt, explicabo.',
+    image: amanita
+  },
+  {
+    id: 4,
+    name: 'rat',
+    text: 'Sed ut perspiciatis, unde omnis iste natus error sit vole dicta sunt, explicabo.',
+    image: rat
   }
 ]
 </script>
