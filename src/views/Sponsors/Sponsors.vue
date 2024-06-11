@@ -42,55 +42,24 @@ const sponsors = [
   <div class="sponsors">
     <div class="sponsors__content">
       <div class="sponsors__item" v-for="sponsor in sponsors" :key="sponsor.id">
-        <img :src="sponsor.logo" :alt="sponsor.logo" :class="`sponsors__logo-${sponsor.name}`">
+        <div class="sponsors__image-wrapper">
+          <img :src="sponsor.logo" :alt="sponsor.logo" :class="`sponsors__logo-${sponsor.name}`">
+        </div>
         <p>{{ sponsor.text }}</p>
       </div>
+    </div>
+    <div class="sponsors__links">
+      <RouterLink :to="{ name: 'home'}">
+        главная
+      </RouterLink>
+      <span>|</span>
+      <p>спонсоры</p>
+      <span>|</span>
+      <RouterLink :to="{ name: 'sound'}">
+        саунд
+      </RouterLink>
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
-.sponsors {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px;
-
-  &__logo {
-    &-sarmatian {
-      width: 200px;
-    }
-
-    &-shulz {
-      width: 400px;
-    }
-
-    &-nice-to-trip {
-      width: 200px;
-    }
-
-    &-fatrat {
-      width: 300px;
-    }
-  }
-
-  &__content {
-    display: flex;
-    align-items: center;
-  }
-
-  &__item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 40px;
-
-    p {
-      margin-top: 50px;
-      font-size: 24px;
-      text-align: center;
-      justify-self: flex-start;
-    }
-  }
-}
-</style>
+<style lang="scss" scoped src="./Sponsors.scss"></style>

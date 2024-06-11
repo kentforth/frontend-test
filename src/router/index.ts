@@ -47,7 +47,15 @@ const router = createRouter({
         title: 'Спонсоры'
       },
       name: 'sponsors',
-      component: () => import('../views/Sponsors.vue')
+      component: () => import('../views/Sponsors/Sponsors.vue')
+    },
+    {
+      path: '/sound',
+      meta: {
+        title: 'Саунд'
+      },
+      name: 'sound',
+      component: () => import('../views/Sound/Sound.vue')
     },
     {
       path: '/heritage',
@@ -55,7 +63,7 @@ const router = createRouter({
         title: 'Наследие'
       },
       name: 'heritage',
-      component: () => import('../views/Heritage.vue')
+      component: () => import('../views/Heritage/Heritage.vue')
     }
   ]
 })
