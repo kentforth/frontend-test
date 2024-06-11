@@ -1,0 +1,31 @@
+.heritage {
+  padding: 50px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+
+  &__images {
+    padding: 10px 0;
+  }
+
+  &__image {
+    width: 400px;
+    cursor: pointer;
+  }
+
+  &__links {
+    margin-top: 100px;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+
+    span {
+      margin: 0 4px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+  }
+}

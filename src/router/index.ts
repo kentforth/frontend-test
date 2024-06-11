@@ -64,6 +64,11 @@ const router = createRouter({
       },
       name: 'heritage',
       component: () => import('../views/Heritage/Heritage.vue')
+    },
+    {
+      path: '/heritage/:year',
+      name: 'heritageItem',
+      component: () => import('../views/HeritageItem/HeritageItem.vue')
     }
   ]
 })
