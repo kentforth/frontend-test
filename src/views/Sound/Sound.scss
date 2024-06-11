@@ -1,0 +1,45 @@
+.sound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 30px 30px 30px;
+
+  &__content {
+    display: flex;
+  }
+
+  &__item {
+    margin-right: 50px;
+    width: 400px;
+
+    p {
+      margin-top: 40px;
+    }
+  }
+
+  &__image-wrapper {
+    height: 200px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__image {
+    &-dragon-blood {
+      width: 400px;
+    }
+
+    &-sleepwalker {
+      width: 400px;
+    }
+  }
+
+  &__links {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+
+    span {
+      margin: 0 4px;
+    }
+  }
+}
