@@ -5,13 +5,257 @@ export default {
 </script>
 
 <script setup lang="ts">
+import route2021 from '@/assets/images/heritage-item/route-2021.png'
+import route2022 from '@/assets/images/heritage-item/route-2022.png'
+import route2023 from '@/assets/images/heritage-item/route-2023.png'
+import route2024 from '@/assets/images/heritage-item/route-2024.png'
 
+import Content from "./components/Content.vue";
+
+const route = useRoute()
+
+document.title = String(route.params.year)
+
+const image = computed(() => {
+  switch (route.params.year) {
+    case '2021':
+      return route2021
+    case '2022':
+      return route2022
+    case '2023':
+      return route2023
+    case '2024':
+      return route2024
+    default:
+      return ''
+  }
+})
+
+const date = computed(() => {
+  switch (route.params.year) {
+    case '2021':
+      return '2021.07.10 - 2021.07.11'
+    case '2022':
+      return '2022.07.15 - 2022.07.17'
+    case '2023':
+      return '2023.07.14 - 2023.07.16'
+    case '2024':
+      return '2024.07.19 - 2024.07.21'
+    default:
+      return ''
+  }
+})
+
+const place = computed(() => {
+  switch (route.params.year) {
+    case '2021':
+      return '56.229727 84.976918'
+    case '2022':
+      return '56.361983 84.951603'
+    case '2023':
+      return '56.135156 84.982463'
+    case '2024':
+      return '56.373234 84.962397'
+    default:
+      return ''
+  }
+})
+
+const distance = computed(() => {
+  switch (route.params.year) {
+    case '2021':
+      return '105 км'
+    case '2022':
+      return '102 км'
+    case '2023':
+      return '117 км'
+    case '2024':
+      return '98.5 км'
+    default:
+      return ''
+  }
+})
+
+const climb = computed(() => {
+  switch (route.params.year) {
+    case '2021':
+      return '1434 м'
+    case '2022':
+      return '1398 м'
+    case '2023':
+      return '1582 м'
+    case '2024':
+      return '1468 м'
+    default:
+      return ''
+  }
+})
+
+const quantity = computed(() => {
+  switch (route.params.year) {
+    case '2021':
+      return 'x'
+    case '2022':
+      return 'x'
+    case '2023':
+      return 'x'
+    case '2024':
+      return 'x'
+    default:
+      return ''
+  }
+})
+
+const way = computed(() => {
+  switch (route.params.year) {
+    case '2021':
+      return 'x.kmz'
+    case '2022':
+      return 'x.kmz'
+    case '2023':
+      return 'x.kmz'
+    case '2024':
+      return 'x.kmz'
+    default:
+      return ''
+  }
+})
 </script>
 
 <template>
-  <div>
-    HeritageItem
+  <div class="heritage-item">
+    <div class="heritage-item__info">
+      <div class="heritage-item__dates">
+        <p>даты: {{ date }}</p>
+        <p>место: {{ place }}</p>
+        <p>дистанция: {{ distance }}</p>
+        <p>набор высоты: {{ climb }}</p>
+        <p>количество участников: {{ quantity }}</p>
+        <p>маршрут: {{ way }}</p>
+      </div>
+      <img :src="image" :alt="route.params.year" :class="`heritage-item__image-${route.params.year}`">
+    </div>
+    <div class="heritage-item__content">
+      <Content v-if="route.params.year === '2021'">
+        <div>
+          <p>зачет:</p>
+          <p>ПРО Мужчины</p>
+          <br>
+          <p>МТБ</p>
+          <p>1. Андрей Рейтер</p>
+          <br>
+          <p>ГРЭВЕЛ</p>
+          <p>1. Денис Дедков (Москва)</p>
+          <p>2. Георгий Грезин (Томск)</p>
+          <p>3. Анатолий Васильев (Томск)</p>
+          <br>
+          <p>ФИКС</p>
+          <p>1. Павел Еркаев (Томск)</p>
+          <p>2. Егор Вострицев и Александр Рассамахин (Томск)</p>
+        </div>
+        <div>
+          <p>ЛАЙТ Мужчины</p>
+          <br>
+          <p>МТБ</p>
+          <p>1. Степан Кузьменко (Томск)</p>
+          <p>2. Герман Курмель (Северск)</p>
+          <p>3. Дмитрий Франк и Антон Кундинов (Томск)</p>
+          <br>
+          <p>ГРЭВЕЛ</p>
+          <p>1. Марат Бакиров (Томск)</p>
+          <p>2. Дмитрий хмуров (Новосибирск)</p>
+          <p>3. Леонид Борзых (Новосибирск)</p>
+          <br>
+          <p>ФИКС</p>
+          <p>1. Роб (Москва)</p>
+          <p>2. Рома Кикер (Томск)</p>
+          <p>3. Слава Мейнснер (Томск)</p>
+        </div>
+        <div>
+          <p>ПРО Женщины</p>
+          <br>
+          <p>ГРЭВЕЛ</p>
+          <p>1. Валентина Ермошкина (Новосибирск)</p>
+          <br>
+          <p>ЛАЙТ Женщины</p>
+          <br>
+          <p>ГРЭВЕЛ</p>
+          <p>2. Варя Гурова (Москва)</p>
+        </div>
+      </Content>
+      <Content v-else-if="route.params.year === '2022'">
+        <div>
+          <p>зачет:</p>
+          <p>Категория ГОНЩИК</p>
+          <br>
+          <p>RIGID</p>
+          <p>1. Сергей Бутько (Новосибирск)</p>
+          <p>2. Денис Федоров (Томск)</p>
+          <p>3. Дмитрий Иващенко (Новосибирск)</p>
+          <br>
+          <p>HARDTAIL</p>
+          <p>1. Дмитрий Франк (Томск) (абсолют)</p>
+          <p>2. Алексей Аблаев (Томск)</p>
+          <p>3. Алексей Вардугин (Кемерово)</p>
+        </div>
+        <div>
+          <p>Категория ИССЛЕДОВАТЕЛЬ</p>
+          <br>
+          <p>1. Сергей Иванов (Томск)</p>
+          <p>2. Ориджинал Фил и Персефона</p>
+          <p>3. Влад Шадрив</p>
+        </div>
+        <div>
+          <p>номинация</p>
+          <br>
+          <p>Павел Еркаев (маршрут пройден на фиксе)</p>
+        </div>
+      </Content>
+      <Content v-else-if="route.params.year === '2023'">
+        <div>
+          <p>зачет:</p>
+          <p>Категория ГОНЩИК Мужчины</p>
+          <br>
+          <p>МТБ</p>
+          <p>1. Андрей Рейтер (Томск)</p>
+          <p>2. Денис Горбачев (Томск)</p>
+          <p>3. Анатолий Борисенко (Томск)</p>
+          <br>
+          <p>ГРЭВЕЛ</p>
+          <p>1. Сергей Павлов (Томск) (абсолют)</p>
+          <p>2. Дмитрий Франк (Томск)</p>
+          <p>3. Сергей Бутько (Новосибирск)</p>
+          <br>
+          <p>ФИКС</p>
+          <p>1. Самуил Лесков (Новосибирск)</p>
+        </div>
+        <div>
+          <p>Категория ГОНЩИК Женщины</p>
+          <br>
+          <p>1. Катя Берг (Томск) (МТБ)</p>
+          <p>2. Ирина Харитонова (Томск) (ГРЭВЕЛ)</p>
+          <p>3. Евгения Смородина (Томск) (МТБ)</p>
+        </div>
+        <div>
+          <p>Категория ИССЛЕДОВАТЕЛЬ</p>
+          <br>
+          <p>1. Герман Курмель (Северск)</p>
+          <p>2. Павел Еркаев (Томск)</p>
+          <p>3. Сергей Иванов (Томск)</p>
+        </div>
+      </Content>
+      <Content v-else-if="route.params.year === '2024'">
+        <div>
+          <p>зачет:</p>
+          <p>Категория ГОНЩИК Мужчины</p>
+        </div>
+        <div>
+          <p>Категория ГОНЩИК Женщины</p>
+        </div>
+        <div></div>
+      </Content>
+    </div>
   </div>
 </template>
 
-<style></style>
+<style lang="scss" scoped src="./HeritageItem.scss"></style>
