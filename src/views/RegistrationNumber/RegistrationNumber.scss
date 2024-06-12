@@ -1,0 +1,60 @@
+.registration-number {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1,
+  h2 {
+    font-weight: normal;
+    font-family: 'PrimitiveRussian', sans-serif;
+  }
+
+  h1 {
+    font-size: 44px;
+  }
+
+  h2 {
+    margin-top: 60px;
+    font-size: 34px;
+  }
+
+  &__number {
+    margin-top: 20px;
+    width: 456px;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 250px;
+    font-family: 'Stig', sans-serif;
+    background-image: url('@/assets/images/registration-number/number-background.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    box-shadow: rgba(0, 0, 0, 0.25) 00 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 00 -3px 5px;
+
+    span {
+      transform: translateY(10px);
+      color: $white-grey-2;
+    }
+  }
+
+  &__email {
+    margin-top: 100px;
+    font-size: 20px;
+    color: $white-grey;
+  }
+
+  &__links {
+    font-size: 24px;
+    margin-top: 50px;
+
+    a {
+      color: $white-grey;
+    }
+
+    span {
+      margin: 0 4px;
+    }
+  }
+}

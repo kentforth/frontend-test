@@ -1,7 +1,7 @@
 // Primitive Russian
 @font-face {
   font-family: 'PrimitiveRussian';
-   src: url('@/assets/fonts/PrimitiveRussian/1350_primitive_russian.otf') format('opentype');
+  src: url('@/assets/fonts/PrimitiveRussian/1350_primitive_russian.otf') format('opentype');
   font-weight: normal;
 }
 
@@ -9,5 +9,12 @@
 @font-face {
   font-family: 'ArtifactElement';
   src: url('@/assets/fonts/ArtifactElement/artifakt_element_regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+// Stig
+@font-face {
+  font-family: 'Stig';
+  src: url('@/assets/fonts/Stig/stig.otf') format('opentype');
   font-weight: normal;
 }
