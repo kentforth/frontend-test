@@ -5,14 +5,14 @@ export default {
 </script>
 
 <script setup lang="ts">
-import {query, collection, getDocs} from 'firebase/firestore'
-import {db} from '@/services/firebase'
+/*import {query, collection, getDocs} from 'firebase/firestore'
+import {db} from '@/services/firebase'*/
 
 const number = ref(23)
-const hasEmail = ref(false)
-const isPageLoaded = ref(false)
+/*const hasEmail = ref(false)
+const isPageLoaded = ref(false)*/
 
-onBeforeMount(async () => {
+/*onBeforeMount(async () => {
   const email = localStorage.getItem('email')
 
   let emails = []
@@ -30,7 +30,7 @@ onBeforeMount(async () => {
   }
 
   isPageLoaded.value = true
-})
+})*/
 </script>
 
 <template>
@@ -47,10 +47,10 @@ onBeforeMount(async () => {
 
     <div class="registration-number__links">
       <RouterLink :to="{ name: 'home' }">главная</RouterLink>
-      <template v-if="!hasEmail && isPageLoaded">
-        <span>|</span>
-        <RouterLink :to="{ name: 'registration' }">регистрация</RouterLink>
-      </template>
+      <!--      <template v-if="!hasEmail && isPageLoaded">
+              <span>|</span>
+              <RouterLink :to="{ name: 'registration' }">регистрация</RouterLink>
+            </template>-->
     </div>
   </div>
 </template>
