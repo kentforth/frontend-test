@@ -47,10 +47,8 @@ const isPageLoaded = ref(false)*/
 
     <div class="registration-number__links">
       <RouterLink :to="{ name: 'home' }">главная</RouterLink>
-      <!--      <template v-if="!hasEmail && isPageLoaded">
-              <span>|</span>
-              <RouterLink :to="{ name: 'registration' }">регистрация</RouterLink>
-            </template>-->
+      <span>|</span>
+      <p>регистрация</p>
     </div>
   </div>
 </template>

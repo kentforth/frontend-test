@@ -48,8 +48,9 @@
   &__links {
     font-size: 24px;
     margin-top: 50px;
+    display: flex;
 
-    a {
+    a, p {
       color: $white-grey;
     }
 
