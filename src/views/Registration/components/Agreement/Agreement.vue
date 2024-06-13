@@ -7,6 +7,8 @@ export default {
 <script setup lang="ts">
 import Checkbox from "../Checkbox/Checkbox.vue";
 
+const emit = defineEmits(['agree'])
+
 const agreement = ref({
   age: true,
   limits: false,
@@ -55,7 +57,13 @@ const items = [
 
 const updateCheckbox = (value, item) => {
   agreement.value[item.value] = value
-  console.log('AGREEMENT', agreement.value)
+}
+
+const onSubmit = () => {
+  const isTrue = Object.values(agreement.value).every(field => field === true)
+  if (isTrue) {
+    emit('agree')
+  }
 }
 </script>
 
@@ -66,6 +74,13 @@ const updateCheckbox = (value, item) => {
         <p>{{ item.text }}</p>
         <Checkbox @update="updateCheckbox($event, item)" v-if="item.id !== 3"/>
       </div>
+    </div>
+    <div class="agreement__links">
+      <RouterLink :to="{ name: 'home'}">главная</RouterLink>
+      <span>|</span>
+      <button @click="onSubmit">
+        далее
+      </button>
     </div>
   </div>
 </template>
@@ -90,6 +105,21 @@ const updateCheckbox = (value, item) => {
 
     p {
       font-size: 24px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    margin-top: 100px;
+
+    span {
+      margin: 0 4px;
+    }
+
+    button {
+      font-size: 20px;
     }
   }
 }
