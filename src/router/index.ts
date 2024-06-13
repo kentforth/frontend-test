@@ -95,6 +95,7 @@ router.beforeEach(async (to, from, next) => {
     return
   }
 
+  // check if email is already registered
   if (to.name === 'registration') {
     let emails = []
     const q = await query(collection(db, 'emails'))

@@ -8,7 +8,7 @@ export default {
 /*import {query, collection, getDocs} from 'firebase/firestore'
 import {db} from '@/services/firebase'*/
 
-const number = ref(23)
+const number = ref(null)
 /*const hasEmail = ref(false)
 const isPageLoaded = ref(false)*/
 

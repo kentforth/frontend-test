@@ -12,8 +12,11 @@ import {
   getDocs,
   collection
 } from 'firebase/firestore'
+import Agreement from "@/views/Registration/components/Agreement/Agreement.vue";
 
 const router = useRouter()
+
+const isAgree = ref(false)
 
 /*onBeforeMount(async () => {
   let emails = []
@@ -31,9 +34,15 @@ const router = useRouter()
 </script>
 
 <template>
-  <div>
-    Registration
+  <div class="registration">
+    <Agreement v-if="!isAgree"/>
   </div>
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+.registration {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+</style>

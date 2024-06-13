@@ -51,6 +51,7 @@ const onSubmit = async () => {
         type="email"
         placeholder="example@inbox.ru"
         autocomplete="off"
+        class="form login__field"
       />
       <ErrorMessage name="email" class="form__error"/>
 
@@ -72,6 +73,12 @@ const onSubmit = async () => {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  &__field {
+    &::placeholder {
+      text-align: center;
+    }
   }
 
   &__button {
