@@ -10,6 +10,8 @@ export default {
 <script setup lang="ts">
 import * as yup from 'yup';
 
+import {vOnClickOutside} from '@vueuse/components'
+
 
 // import "firebase/firestore";
 import {db} from '@/services/firebase'
@@ -45,7 +47,14 @@ const schema = yup.object({
 const router = useRouter()
 
 const isAgree = ref(true)
+const genderRef = ref(null)
 const isPhoneValid = ref(true)
+const categoriesRef = ref(null)
+const hasGenderError = ref(false)
+const hasCategoryError = ref(false)
+
+const genders = ref(['муж', 'жен'])
+const categories = ref(['гонщик (ГРЭВЕЛ)', 'гонщик (МТБ)', 'гонщик (ФИКС)', 'искатель (ГРЭВЕЛ)', 'искатель (МТБ)', 'искатель (ФИКС)'])
 
 const form = ref({
   email: null,
@@ -62,10 +71,6 @@ onBeforeMount(() => {
   form.value.email = localStorage.getItem('email')
 })
 
-const genders = ref(['муж', 'жен'])
-const categories = ref(['гонщик (ГРЭВЕЛ)', 'гонщик (МТБ)', 'гонщик (ФИКС)', 'искатель (ГРЭВЕЛ)', 'искатель (МТБ)', 'искатель (ФИКС)'])
-const hasGenderError = ref(false)
-const hasCategoryError = ref(false)
 
 const onAgree = () => {
   isAgree.value = true
@@ -103,6 +108,14 @@ const onSubmit = () => {
 
   if (!isPhoneValid) return*/
   console.log('SUBMIT')
+}
+
+const closeGenderList = () => {
+  genderRef.value.isVisible = false
+}
+
+const closeCategoriesList = () => {
+  categoriesRef.value.isVisible = false
 }
 
 /*onBeforeMount(async () => {
@@ -193,10 +206,12 @@ const onSubmit = () => {
       <!--GENDER-->
       <div class="registration__field">
         <Select
+          ref="genderRef"
           v-model="form.gender"
           name="gender"
           :items="genders"
           placeholder="пол"
+          v-on-click-outside="closeGenderList"
           @update:modelValue="setGender"
         />
         <span class="registration__error" v-if="hasGenderError">Выберите пол</span>
@@ -205,10 +220,12 @@ const onSubmit = () => {
       <!--CATEGORY-->
       <div class="registration__field">
         <Select
+          ref="categoriesRef"
           v-model="form.category"
           name="gender"
           :items="categories"
           placeholder="категория"
+          v-on-click-outside="closeCategoriesList"
           @update:modelValue="setCategory"
         />
         <span class="registration__error" v-if="hasCategoryError">Выберите категорию</span>

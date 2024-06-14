@@ -30,6 +30,8 @@ const handleInput = (item) => {
   emit('update:modelValue', item)
 }
 
+defineExpose({isVisible})
+
 </script>
 
 <template>
