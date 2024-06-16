@@ -51,6 +51,8 @@ defineExpose({isVisible})
 .select {
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 999999;
 
   &__input {
     cursor: pointer;
@@ -60,6 +62,10 @@ defineExpose({isVisible})
     width: 100%;
     box-shadow: 0 8px 10px -4px rgba(0, 0, 0, 0.68);
     font-size: 24px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: $black;
   }
 
   &__item {

@@ -7,8 +7,16 @@ export default {
 <script setup lang="ts">
 /*import {query, collection, getDocs} from 'firebase/firestore'
 import {db} from '@/services/firebase'*/
+const route = useRoute()
 
 const number = ref(null)
+
+const newRegistration = ref(route.query.newRegistration)
+
+const sendEmail = () => {
+  console.log('SEND EMAIL')
+}
+
 /*const hasEmail = ref(false)
 const isPageLoaded = ref(false)*/
 
@@ -31,6 +39,7 @@ const isPageLoaded = ref(false)*/
 
   isPageLoaded.value = true
 })*/
+
 </script>
 
 <template>
@@ -43,12 +52,11 @@ const isPageLoaded = ref(false)*/
       <span>{{ number }}</span>
     </div>
 
-    <p class="registration-number__email">на адрес твоей электронной почты отправлены реквизиты для оплаты и вся необходимая информация</p>
+    <p class="registration-number__email" v-if="newRegistration">на адрес твоей электронной почты отправлены реквизиты для оплаты и вся необходимая информация</p>
+    <button v-else class="registration-number__email" @click="sendEmail">отправить информацию повторно</button>
 
     <div class="registration-number__links">
       <RouterLink :to="{ name: 'home' }">главная</RouterLink>
-      <span>|</span>
-      <p>регистрация</p>
     </div>
   </div>
 </template>
