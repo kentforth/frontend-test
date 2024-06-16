@@ -5,48 +5,91 @@ export default {
 </script>
 
 <script setup lang="ts">
-/*import {query, collection, getDocs} from 'firebase/firestore'
-import {db} from '@/services/firebase'*/
+import {query, collection, getDocs} from 'firebase/firestore'
+import {db} from '@/services/firebase'
+
 const route = useRoute()
 
 const number = ref(null)
+const riders = ref([])
+const isPageLoaded = ref(false)
 
 const newRegistration = ref(route.query.newRegistration)
 
+const riderNumber = computed(() => {
+  return riders.value.length ? riders.value.length - 1 : ''
+})
+
+let sentEmails = 0
+
+const getNoun = (number, one, two, five) => {
+  let n = Math.abs(number);
+  n %= 100;
+  if (n >= 5 && n <= 20) {
+    return five;
+  }
+  n %= 10;
+  if (n === 1) {
+    return one;
+  }
+  if (n >= 2 && n <= 4) {
+    return two;
+  }
+  return five;
+}
+
 const sendEmail = () => {
-  console.log('SEND EMAIL')
+  sentEmails += 1
+  if (sentEmails <= 1) {
+    console.log('SEND EMAIL')
+  }
 }
 
 /*const hasEmail = ref(false)
 const isPageLoaded = ref(false)*/
 
-/*onBeforeMount(async () => {
+onBeforeMount(async () => {
   const email = localStorage.getItem('email')
 
   let emails = []
 
-  const q = await query(collection(db, 'emails'))
-  const docs = await getDocs(q)
-  docs.forEach((doc: any) => {
+  const queryEmails = await query(collection(db, 'emails'))
+  const queryRiders = await query(collection(db, 'riders'))
+
+  const docsEmails = await getDocs(queryEmails)
+  const docsRiders = await getDocs(queryRiders)
+
+  docsEmails.forEach((doc: any) => {
     emails.push(doc.data())
   })
 
-  const isEmailExist = emails.some((el) => el.email === email)
+  docsRiders.forEach((doc: any) => {
+    riders.value.push(doc.data())
+  })
 
-  if (isEmailExist) {
-    hasEmail.value = true
+  const foundEmail = emails.find((el) => el.email === email)
+  
+  if (foundEmail) {
+    number.value = foundEmail.number
   }
 
   isPageLoaded.value = true
-})*/
+})
 
 </script>
 
 <template>
-  <div class="registration-number">
-    <h1>Ты зарегистрирован[а] на гонку урочище</h1>
+  <div class="registration-number" v-if="isPageLoaded">
+    <h1 v-if="newRegistration">Ты зарегистрирован(а) на гонку Урочище</h1>
+    <h1 v-else>Хорош, Ты уже зарегистрирован(а)
+      <br>
+               Ты, и еще {{ riderNumber }} {{ getNoun(Number(riderNumber), 'участник', 'участника', 'участников') }}
+      <br>
+               твой номер
+    </h1>
 
-    <h2>твой номер участника</h2>
+    <h2 v-if="newRegistration">твой номер участника</h2>
+    <h2 v-else>твой номер</h2>
 
     <div class="registration-number__number">
       <span>{{ number }}</span>
