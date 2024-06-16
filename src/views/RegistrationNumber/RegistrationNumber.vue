@@ -45,9 +45,6 @@ const sendEmail = () => {
   }
 }
 
-/*const hasEmail = ref(false)
-const isPageLoaded = ref(false)*/
-
 onBeforeMount(async () => {
   const email = localStorage.getItem('email')
 
@@ -68,7 +65,7 @@ onBeforeMount(async () => {
   })
 
   const foundEmail = emails.find((el) => el.email === email)
-  
+
   if (foundEmail) {
     number.value = foundEmail.number
   }
@@ -83,9 +80,9 @@ onBeforeMount(async () => {
     <h1 v-if="newRegistration">Ты зарегистрирован(а) на гонку Урочище</h1>
     <h1 v-else>Хорош, Ты уже зарегистрирован(а)
       <br>
-               Ты, и еще {{ riderNumber }} {{ getNoun(Number(riderNumber), 'участник', 'участника', 'участников') }}
+      <span v-if="Number(riderNumber) > 0">Ты, и еще {{ riderNumber }} {{ getNoun(Number(riderNumber), 'участник', 'участника', 'участников') }}</span>
       <br>
-               твой номер
+      <span v-if="Number(riderNumber) > 0">твой номер</span>
     </h1>
 
     <h2 v-if="newRegistration">твой номер участника</h2>

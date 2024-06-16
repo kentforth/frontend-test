@@ -314,7 +314,7 @@ const closeCategoriesList = () => {
         <button>завершить</button>
       </div>
 
-      <img class="registration__rombus" src="@/assets/icons/rhombus.png" v-if="isLoading"/>
+      <img class="registration__loader" src="@/assets/images/loader.gif" v-if="isLoading"/>
     </Form>
   </div>
 </template>
@@ -371,7 +371,7 @@ const closeCategoriesList = () => {
     }
   }
 
-  &__rombus {
+  &__loader {
     height: 100px;
     justify-self: center;
     animation: rotating 3s linear infinite;
