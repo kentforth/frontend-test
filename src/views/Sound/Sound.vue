@@ -14,25 +14,25 @@ const bands = [
   {
     id: 1,
     name: 'dragon-blood',
-    text: 'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo.',
+    text: 'Фэнтези dungeon synth из Санкт-Петербурга, так полюбившийся нам в прошлом году, презентуют свой новый альбом. От участников небезызвестных Beauty Of Sirin и КОЛЧАК',
     image: dragonBlood
   },
   {
     id: 2,
     name: 'sleepwalker',
-    text: 'Sed ut perspiciatis, unde omnis iste natus error sit vole dicta sunt, explicabo.',
+    text: 'Drone Ambient полотна с гитарами, синтезаторами, кастомными педалями - полностью аналоговое звучание, уносящее в новое путешествие',
     image: sleepwalker
   },
   {
     id: 3,
     name: 'amanita',
-    text: 'Sed ut perspiciatis, unde omnis iste natus error sit vole dicta sunt, explicabo.',
+    text: 'Dungeon synth дуэт из Москвы, рассказывающий о приключениях Жабьего Короля. Впервые в наших землях с эксклюзивным выступлением',
     image: amanita
   },
   {
     id: 4,
     name: 'rat',
-    text: 'Sed ut perspiciatis, unde omnis iste natus error sit vole dicta sunt, explicabo.',
+    text: 'One-woman dungeon synth проект, посвященный вселенной "Хроник Нарнии" (К.С. Льюиса) и являющийся неофитом жанра, представит свой дебютный материал',
     image: rat
   }
 ]
