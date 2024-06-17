@@ -8,13 +8,46 @@ export default {
 import {Form, Field, ErrorMessage} from 'vee-validate'
 import * as yup from 'yup';
 
+import "firebase/firestore";
+import {db} from '@/services/firebase'
+import {
+  query,
+  getDocs,
+  collection
+} from 'firebase/firestore'
+
 const router = useRouter()
 
 const email = ref(null)
+const riders = ref([])
+const isExcelButtonVisible = ref(false)
 
 const schema = yup.object({
   email: yup.string().required('Введите почту').email('Введите почту правильно'),
 });
+
+onBeforeMount(() => {
+  window.addEventListener("keydown", showPasswordPrompt);
+  window.scrollTo({top: 0});
+  getRiders();
+})
+
+const showPasswordPrompt = (event: any) => {
+  if (event.key === "F10") {
+    if (prompt("Please enter password", '') === import.meta.env.VITE_PASSWORD) {
+      isExcelButtonVisible.value = true;
+    }
+  }
+}
+
+const getRiders = async () => {
+  riders.value = []
+  const q = await query(collection(db, 'riders'));
+  const docs = await getDocs(q)
+  docs.forEach((doc: any) => {
+    riders.value.push(doc.data())
+  });
+}
 
 const onSubmit = () => {
   localStorage.setItem('email', email.value)
@@ -25,6 +58,26 @@ const onSubmit = () => {
 
 <template>
   <div class="login">
+    <download-excel
+      v-if="isExcelButtonVisible"
+      :data="riders"
+      class="login__excel"
+      name="riders.xls"
+      :exportFields="{
+          Номер: 'number',
+          Фамилия: 'lastName',
+          Имя: 'name',
+          Возраст: 'age',
+          Пол: 'gender',
+          Email: 'email',
+          Город: 'city',
+          Категория: 'category',
+          Телефон: 'phone',
+        }"
+    >
+      <span>Сохранить в excel</span>
+    </download-excel>
+
     <Form
       v-slot="{ errors }"
       :validation-schema="schema"
@@ -54,6 +107,7 @@ const onSubmit = () => {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 
   &__form {
     display: flex;
@@ -71,6 +125,25 @@ const onSubmit = () => {
     margin-top: 20px;
     font-size: 40px;
     font-family: 'PrimitiveRussian', sans-serif;
+  }
+
+  &__excel {
+    position: absolute;
+    top: 100px;
+    width: max-content;
+    background-color: $green;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+    color: $black;
+
+    img {
+      width: 20px;
+      margin-left: 5px;
+    }
   }
 }
 

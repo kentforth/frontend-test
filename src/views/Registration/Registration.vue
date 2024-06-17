@@ -164,7 +164,7 @@ const onSubmit = async () => {
 
       await addDoc(ridersCollection, form.value)
       await addDoc(emailsCollection, email)
-      // await sendEmail(form.value.number, form.value.email)
+      await sendEmail(form.value.number, form.value.email)
       await router.push({
         name: 'registrationNumber',
         query: {
@@ -188,19 +188,6 @@ const closeCategoriesList = () => {
   categoriesRef.value.isVisible = false
 }
 
-/*onBeforeMount(async () => {
-  let emails = []
-  const q = await query(collection(db, 'emails'));
-  const docs = await getDocs(q)
-  docs.forEach((doc: any) => {
-    emails.push(doc.data())
-  });
-
-  const email = localStorage.getItem('email')
-
-  const isEmailExist = emails.some(el => el.email === email)
-  if (isEmailExist) await router.replace({name: 'registrationNumber'})
-})*/
 </script>
 
 <template>
@@ -374,6 +361,7 @@ const closeCategoriesList = () => {
   &__loader {
     height: 100px;
     justify-self: center;
+    grid-column: span 2;
     animation: rotating 3s linear infinite;
   }
 }
