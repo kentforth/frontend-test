@@ -95,7 +95,7 @@ const onSubmit = () => {
       <ErrorMessage name="email" class="form__error"/>
 
       <button class="login__button">
-        Войти
+        войти
       </button>
     </Form>
   </div>
@@ -123,8 +123,7 @@ const onSubmit = () => {
 
   &__button {
     margin-top: 20px;
-    font-size: 40px;
-    font-family: 'PrimitiveRussian', sans-serif;
+    font-size: 30px;
   }
 
   &__excel {

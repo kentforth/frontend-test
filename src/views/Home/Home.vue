@@ -10,19 +10,16 @@ const topLinks = [
     id: 1,
     page: '1',
     title: 'во что мы верим',
-    subTitle: '[наша философия]'
   },
   {
     id: 2,
     page: '2',
-    title: 'урочище',
-    subTitle: '[подробно]'
+    title: 'подробно',
   },
   {
     id: 3,
     page: '3',
     title: 'где мы есть',
-    subTitle: '[как добраться]'
   }
 ]
 
@@ -30,20 +27,17 @@ const bottomLinks = [
   {
     id: 1,
     link: 'registration',
-    title: 'ринуться',
-    subTitle: '[регистрация]'
+    title: 'регистрация',
   },
   {
     id: 2,
     link: 'sponsors',
     title: 'кто в деле',
-    subTitle: '[спонсоры]'
   },
   {
     id: 3,
     link: 'heritage',
-    title: 'припомнить',
-    subTitle: '[наследие]'
+    title: 'наследие',
   }
 ]
 </script>
@@ -56,7 +50,6 @@ const bottomLinks = [
       <div class="home__top">
         <RouterLink :to="{ name: 'details', query: { page: link.page}}" class="home__link" v-for="link in topLinks" :key="link.id">
           {{ link.title }}
-          <p>{{ link.subTitle }}</p>
         </RouterLink>
       </div>
       <img src="@/assets/images/logo.png" alt="logo" class="home__logo">
