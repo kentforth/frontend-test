@@ -10,8 +10,6 @@ export default {
 <script setup lang="ts">
 import * as yup from 'yup';
 
-import emailjs from 'emailjs-com';
-
 import {vOnClickOutside} from '@vueuse/components'
 
 import "firebase/firestore";
