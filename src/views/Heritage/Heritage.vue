@@ -14,8 +14,6 @@ export default {
 </script>
 
 <script setup lang="ts">
-
-
 import one from '@/assets/images/heritage/2021.png'
 import two from '@/assets/images/heritage/2022.png'
 import four from '@/assets/images/heritage/2024.png'
