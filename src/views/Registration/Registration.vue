@@ -53,9 +53,10 @@ const isPhoneValid = ref(true)
 const categoriesRef = ref(null)
 const hasGenderError = ref(false)
 const hasCategoryError = ref(false)
+const isRegistrationFinished = ref(true)
 
 const genders = ref(['муж', 'жен'])
-const categories = ref(['гонщик (ГРЭВЕЛ)', 'гонщик (МТБ)', 'гонщик (ФИКС)', 'искатель (ГРЭВЕЛ)', 'искатель (МТБ)', 'искатель (ФИКС)'])
+const categories = ref(['гонщик (ГРЭВЕЛ)', 'гонщик (МТБ)', 'гонщик (ФИКС)', 'искатель (ГРЭВЕЛ)', 'искатель (МТБ)', 'искатель (ФИКС)', 'исследователь(другое)'])
 
 const form = ref({
   email: null,
@@ -127,6 +128,10 @@ const onSubmit = async () => {
   const isValid = checkValidation()
   if (isValid) {
     try {
+      if (isRegistrationFinished.value) {
+        return
+      }
+
       isLoading.value = true
 
       const emailbox = collection(db, 'emailbox')
@@ -299,6 +304,8 @@ const closeCategoriesList = () => {
       </div>
 
       <img class="registration__loader" src="@/assets/images/loader.gif" v-if="isLoading"/>
+
+      <p class="registration__finished" v-if="isRegistrationFinished">регистрация завершена</p>
     </Form>
   </div>
 </template>
@@ -360,6 +367,13 @@ const closeCategoriesList = () => {
     justify-self: center;
     grid-column: span 2;
     animation: rotating 3s linear infinite;
+  }
+
+  &__finished {
+    text-align: center;
+    font-size: 40px;
+    grid-column: span 2;
+    color: $red;
   }
 }
 
