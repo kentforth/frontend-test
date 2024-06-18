@@ -53,7 +53,7 @@ const isPhoneValid = ref(true)
 const categoriesRef = ref(null)
 const hasGenderError = ref(false)
 const hasCategoryError = ref(false)
-const isRegistrationFinished = ref(true)
+const isRegistrationFinished = ref(false)
 
 const genders = ref(['муж', 'жен'])
 const categories = ref(['гонщик (ГРЭВЕЛ)', 'гонщик (МТБ)', 'гонщик (ФИКС)', 'искатель (ГРЭВЕЛ)', 'искатель (МТБ)', 'искатель (ФИКС)', 'исследователь(другое)'])
