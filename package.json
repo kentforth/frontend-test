@@ -14,9 +14,7 @@
   },
   "dependencies": {
     "@vueuse/components": "^10.11.0",
-    "emailjs-com": "^3.2.0",
     "firebase": "^10.12.2",
-    "mailgun-js": "^0.22.0",
     "vee-validate": "^4.13.1",
     "vite-plugin-checker": "^0.6.4",
     "vue": "^3.4.21",
