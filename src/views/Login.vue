@@ -5,7 +5,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import {Form, Field, ErrorMessage} from 'vee-validate'
+import {Form, Field, ErrorMessage, configure} from 'vee-validate'
 import * as yup from 'yup';
 
 import "firebase/firestore";
@@ -24,6 +24,13 @@ const isExcelButtonVisible = ref(false)
 
 const schema = yup.object({
   email: yup.string().required('Введите почту').email('Введите почту правильно'),
+});
+
+configure({
+  validateOnBlur: false, // controls if `blur` events should trigger validation with `handleChange` handler
+  validateOnChange: false, // controls if `change` events should trigger validation with `handleChange` handler
+  validateOnInput: true, // controls if `input` events should trigger validation with `handleChange` handler
+  validateOnModelUpdate: false, // controls if `update:modelValue` events should trigger validation with `handleChange` handler
 });
 
 onBeforeMount(() => {
@@ -84,15 +91,17 @@ const onSubmit = () => {
       class="form login__form"
       @submit="onSubmit"
     >
-      <Field
-        v-model.trim="email"
-        name="email"
-        type="email"
-        placeholder="example@inbox.ru"
-        autocomplete="off"
-        class="form login__field"
-      />
-      <ErrorMessage name="email" class="form__error"/>
+      <div class="login__input">
+        <Field
+          v-model.trim="email"
+          name="email"
+          type="email"
+          placeholder="example@inbox.ru"
+          autocomplete="off"
+          class="form login__field"
+        />
+        <ErrorMessage name="email" class="form__error"/>
+      </div>
 
       <button class="login__button">
         войти
@@ -115,6 +124,13 @@ const onSubmit = () => {
     align-items: center;
   }
 
+  &__input {
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   &__field {
     &::placeholder {
       text-align: center;
@@ -122,8 +138,8 @@ const onSubmit = () => {
   }
 
   &__button {
-    margin-top: 20px;
-    font-size: 30px;
+    margin-top: 4px;
+    font-size: 20px;
   }
 
   &__excel {

@@ -25,3 +25,29 @@
   src: url('@/assets/fonts/ST/ST-nizhegorodsky.otf') format('opentype');
   font-weight: normal;
 }
+
+// DecimaNova
+@font-face {
+  font-family: 'DecimaNova';
+  src: url('@/assets/fonts/DecimaNova/decima-nova-pro-regular.otf') format('opentype');
+  font-weight: normal;
+}
+
+// Boxed
+@font-face {
+  font-family: 'BoxedBook';
+  src: url('@/assets/fonts/Boxed/boxed-book.otf') format('opentype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Boxed';
+  src: url('@/assets/fonts/Boxed/boxed-regular.otf') format('opentype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'BoxedBold';
+  src: url('@/assets/fonts/Boxed/boxed-regular-bold.otf') format('opentype');
+  font-weight: normal;
+}

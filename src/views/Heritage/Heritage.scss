@@ -9,6 +9,12 @@
 
   &__image {
     width: 400px;
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     cursor: pointer;
   }
 

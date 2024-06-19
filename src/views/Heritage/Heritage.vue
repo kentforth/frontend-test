@@ -1,14 +1,12 @@
 <script lang="ts">
 import 'vue3-carousel/dist/carousel.css'
-import {Carousel, Slide, Pagination, Navigation} from 'vue3-carousel'
+import {Carousel, Slide} from 'vue3-carousel'
 
 export default {
   name: 'Heritage',
   components: {
     Slide,
-    Carousel,
-    Pagination,
-    Navigation
+    Carousel
   }
 }
 </script>
@@ -18,6 +16,8 @@ import one from '@/assets/images/heritage/2021.png'
 import two from '@/assets/images/heritage/2022.png'
 import four from '@/assets/images/heritage/2024.png'
 import three from '@/assets/images/heritage/2023.png'
+
+const router = useRouter()
 
 const images = [
   {
@@ -42,8 +42,12 @@ const images = [
   }
 ]
 
-const options = {
-  autoplay: 1000,
+const onClick = (title: string) => {
+  if (title === '2024') {
+    return
+  }
+
+  router.push({name: 'heritageItem', params: {year: title}})
 }
 
 </script>
@@ -52,10 +56,10 @@ const options = {
   <div class="heritage">
     <carousel :items-to-show="3.5" class="heritage__images">
       <slide v-for="image in images" :key="image.id">
-        <RouterLink :to="{name: 'heritageItem', params: { year: image.title } }" class="heritage__link">
+        <button @click="onClick(image.title)" class="heritage__button">
           <img :src="image.image" :alt="image.title" class="heritage__image">
           <p>{{ image.title }}</p>
-        </RouterLink>
+        </button>
       </slide>
     </carousel>
     <div class="heritage__links">

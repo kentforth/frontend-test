@@ -1,6 +1,13 @@
 <script lang="ts">
+import 'vue3-carousel/dist/carousel.css'
+import {Carousel, Slide} from 'vue3-carousel'
+
 export default {
-  name: 'Sponsors'
+  name: 'Sponsors',
+  components: {
+    Slide,
+    Carousel
+  }
 }
 </script>
 
@@ -85,18 +92,29 @@ const sponsors = [
     logo: sarmatian,
   }
 ]
+
+/*const options = {
+  slidesW
+}*/
 </script>
 
 <template>
   <div class="sponsors">
-    <div class="sponsors__content">
-      <div class="sponsors__item" v-for="sponsor in sponsors" :key="sponsor.id">
-        <div class="sponsors__image-wrapper">
-          <img :src="sponsor.logo" :alt="sponsor.logo" :class="`sponsors__logo-${sponsor.name}`">
-        </div>
+    <carousel :items-to-show="5.5" class="sponsors__content">
+      <slide v-for="sponsor in sponsors" :key="sponsor.id" class="sponsors__item">
+        <a href="#" target="_blank" class="sponsors__image-wrapper">
+          <img :src="sponsor.logo" :alt="sponsor.name" :class="`sponsors__logo-${sponsor.name}`">
+        </a>
+
         <p>{{ sponsor.text }}</p>
-      </div>
-    </div>
+      </slide>
+    </carousel>
+    <!--      <div class="sponsors__item" v-for="sponsor in sponsors" :key="sponsor.id">
+            <div class="sponsors__image-wrapper">
+              <img :src="sponsor.logo" :alt="sponsor.logo" :class="`sponsors__logo-${sponsor.name}`">
+            </div>
+            <p>{{ sponsor.text }}</p>
+          </div>-->
     <div class="sponsors__links">
       <RouterLink :to="{ name: 'home'}">
         главная
