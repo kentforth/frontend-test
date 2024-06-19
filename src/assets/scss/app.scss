@@ -82,6 +82,8 @@ button {
   &__error {
     color: $red;
     font-family: 'DecimaNova', sans-serif;
+    margin-top: 10px;
+    text-transform: lowercase;
   }
 }
 
