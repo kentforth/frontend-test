@@ -1,0 +1,75 @@
+.registration {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+
+  &__email {
+    pointer-events: none;
+  }
+
+  &__form {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20%;
+    grid-row-gap: 50px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__error {
+    color: $red;
+  }
+
+  &__text,
+  &__links,
+  &__rombus {
+    grid-column: span 2;
+    justify-content: center;
+  }
+
+  &__text {
+    text-align: center;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+
+    span {
+      margin: 0 4px;
+    }
+
+    button {
+      font-size: 24px;
+    }
+  }
+
+  &__loader {
+    height: 100px;
+    justify-self: center;
+    grid-column: span 2;
+    animation: rotating 3s linear infinite;
+  }
+
+  &__finished {
+    text-align: center;
+    font-size: 40px;
+    grid-column: span 2;
+    color: $red;
+  }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
