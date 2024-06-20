@@ -30,9 +30,13 @@
 
   &__divider {
     height: 100%;
-    width: 5px;
+    width: 7px;
     background: $white;
     margin: 0 40px 0 50px;
     border-radius: 2px;
+  }
+
+  &__content {
+    width: 100%;
   }
 }
