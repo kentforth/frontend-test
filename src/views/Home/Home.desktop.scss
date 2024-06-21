@@ -16,12 +16,45 @@
       }
 
       &__poster {
-        width: 400px;
+        height: 400px;
+        width: 300px;
       }
 
       &__logo {
         width: 600px;
         margin-right: 300px;
+      }
+    }
+
+    @media (min-width: $desktop) {
+      &__content {
+        height: 76%;
+        margin-top: 62px;
+      }
+
+      &__top {
+        margin-top: 20px;
+      }
+
+
+      &__bottom {
+        margin-left: 125px;
+        margin-bottom: 38px;
+      }
+
+      &__link {
+        font-size: 65px;
+      }
+
+      &__poster {
+        width: 590px;
+        height: 826px;
+        margin-top: 22px;
+      }
+
+      &__logo {
+        width: 816px;
+        margin: 42px 0 64px 0;
       }
     }
   }
