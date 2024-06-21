@@ -144,7 +144,7 @@ export default {
 .details-info {
   font-size: 20px;
   line-height: 24px;
-  height: 100%;
+  height: 800px;
   font-family: 'BoxedBook', sans-serif;
   overflow-y: scroll;
 
