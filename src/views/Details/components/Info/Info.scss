@@ -1,0 +1,30 @@
+.details-info {
+  font-size: 20px;
+  line-height: 24px;
+  height: 100%;
+  font-family: 'BoxedBook', sans-serif;
+  overflow-y: scroll;
+  text-align: justify;
+
+  &__bold {
+    font-family: 'BoxedBold', sans-serif;
+  }
+
+  &__list {
+    display: grid;
+    grid-column-gap: 20px;
+    grid-row-gap: 5px;
+    grid-template-columns: 10px 1fr;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include ui-desktop-only {
+    /* @media (min-width: $desktop) {
+       font-size: 30px;
+       line-height: 30px;
+     }*/
+  }
+}
