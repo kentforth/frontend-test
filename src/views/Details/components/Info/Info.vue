@@ -152,6 +152,10 @@ export default {
     font-family: 'BoxedBold', sans-serif;
   }
 
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   @include ui-desktop-only {
     /* @media (min-width: $desktop) {
        font-size: 30px;
