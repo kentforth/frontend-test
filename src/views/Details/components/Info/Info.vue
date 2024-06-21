@@ -145,7 +145,7 @@ export default {
 
 <style lang="scss" scoped>
 .details-info {
-  font-size: 20px;
+  font-size: 16px;
   line-height: 24px;
   height: 800px;
   font-family: 'BoxedBook', sans-serif;
