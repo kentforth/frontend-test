@@ -4,6 +4,10 @@
   height: 100vh;
   overflow-y: hidden;
 
+  p {
+    text-align: justify-all;
+  }
+
   &__logo {
     display: flex;
     flex-direction: column;
@@ -11,6 +15,7 @@
 
     img {
       width: 450px;
+      margin-right: 30px;
     }
   }
 
