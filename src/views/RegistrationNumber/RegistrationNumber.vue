@@ -56,7 +56,7 @@ const sendEmail = async (number, email) => {
   const templateParams = {
     to: email,
     message: {
-      subject: 'Регистрация на Урочище 2024',
+      subject: 'Регистрация на гонку Урочище 2024',
       html: `
     Ты зарегистрирован(а) на гонку Урочище 2024.
     <br/>
@@ -73,6 +73,9 @@ const sendEmail = async (number, email) => {
     После оплаты, пожалуйста, сохраните скриншот оплаты у себя на телефоне.
     <br>
     Еще больше информации можно найти на <a href="https://urochishe2024.netlify.app/details?page=2" target="_blank">сайте</a> или в <a href="https://t.me/Urochishe2022">чате</a> для участников, там вы можете задать любые вопросы.
+    <br>
+    <br>
+    Трек маршрута появится на <a href="https://m.vk.com/event225477679" target="_blank">странице</a> группы 17 июля, следите за обновлениями.
    `
     }
   }
