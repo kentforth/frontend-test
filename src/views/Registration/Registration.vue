@@ -53,7 +53,7 @@ const isPhoneValid = ref(true)
 const categoriesRef = ref(null)
 const hasGenderError = ref(false)
 const hasCategoryError = ref(false)
-const isRegistrationFinished = ref(false)
+
 
 const genders = ref(['муж', 'жен'])
 const categories = ref(['гонщик (ГРЭВЕЛ)', 'гонщик (МТБ)', 'гонщик (ФИКС)', 'искатель (ГРЭВЕЛ)', 'искатель (МТБ)', 'искатель (ФИКС)', 'исследователь(другое)'])
@@ -128,9 +128,9 @@ const onSubmit = async () => {
   const isValid = checkValidation()
   if (isValid) {
     try {
-      if (isRegistrationFinished.value) {
+      /*if (isRegistrationFinished.value) {
         return
-      }
+      }*/
 
       isLoading.value = true
 
@@ -314,8 +314,6 @@ const closeCategoriesList = () => {
       </div>
 
       <img class="registration__loader" src="@/assets/images/loader.gif" v-if="isLoading"/>
-
-      <p class="registration__finished" v-if="isRegistrationFinished">регистрация завершена</p>
     </Form>
   </div>
 </template>

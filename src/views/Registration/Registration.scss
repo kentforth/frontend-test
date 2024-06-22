@@ -84,17 +84,11 @@
   }
 
   &__loader {
+    margin-top: 20px;
     height: 100px;
     justify-self: center;
     grid-column: span 2;
     animation: rotating 3s linear infinite;
-  }
-
-  &__finished {
-    text-align: center;
-    font-size: 40px;
-    grid-column: span 2;
-    color: $red;
   }
 }
 

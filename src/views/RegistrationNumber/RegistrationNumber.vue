@@ -125,15 +125,17 @@ onBeforeMount(async () => {
   <div class="registration-number" v-if="isPageLoaded">
     <h1 v-if="newRegistration">Ты зарегистрирован(а) на гонку Урочище
       <br>
-      <br>
+      <br v-if="newRegistration">
                                твой номер участника
     </h1>
+
     <h1 v-else>Хорош, Ты уже зарегистрирован(а)
       <br>
       <span v-if="Number(riderNumber) > 0">Ты, и еще {{ riderNumber }} {{ getNoun(Number(riderNumber), 'участник', 'участника', 'участников') }}</span>
       <br>
-      <span>твой номер</span>
     </h1>
+
+    <h1 v-if="!newRegistration" class="registration-number__your-number">твой номер</h1>
 
     <div class="registration-number__number">
       <span>{{ number }}</span>

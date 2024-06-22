@@ -48,4 +48,9 @@
     width: 80%;
     margin: 64px 0;
   }
+
+  &__finished {
+    color: $red;
+    font-family: 'DecimaNova', sans-serif;
+  }
 }

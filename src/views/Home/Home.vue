@@ -5,6 +5,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+const isRegistrationFinished = ref(false)
+
 const topLinks = [
   {
     id: 1,
@@ -58,8 +60,11 @@ const bottomLinks = [
           {{ link.title }}
           <p>{{ link.subTitle }}</p>
         </RouterLink>
+        <p class="home__finished" v-if="isRegistrationFinished">лучше никогда чем поздно<br>регистрация закрыта</p>
       </div>
     </div>
+
+
   </div>
 </template>
 
