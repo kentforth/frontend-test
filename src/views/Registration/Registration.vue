@@ -46,7 +46,7 @@ const schema = yup.object({
 const router = useRouter()
 
 const riders = ref([])
-const isAgree = ref(true)
+const isAgree = ref(false)
 const isLoading = ref(false)
 const genderRef = ref(null)
 const isPhoneValid = ref(true)
