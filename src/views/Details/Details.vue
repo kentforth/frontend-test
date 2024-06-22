@@ -36,7 +36,7 @@ const changePage = () => {
     <div class="details__logo">
       <img src="@/assets/images/logo.png" alt="logo">
       <div class="details__links">
-        <RouterLink :to="{ name: 'home' }">rлавная</RouterLink>
+        <RouterLink :to="{ name: 'home' }">главная</RouterLink>
         <span>|</span>
         <p>{{ text }}</p>
         <span v-if="route.query.page !== '3'">|</span>
