@@ -222,7 +222,7 @@ const closeCategoriesList = () => {
           v-model="form.phone"
           type="tel"
           v-mask="['+7 (###) ###-##-##']"
-          placeholder="+7() - -"
+          placeholder="+7(     )        -     -"
           @input="checkPhone"
         />
         <span v-if="!isPhoneValid" class="form__error">Введите номер телефона</span>

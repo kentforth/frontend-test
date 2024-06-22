@@ -129,6 +129,11 @@ const onSubmit = () => {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    input {
+      width: 460px;
+      height: 55px;
+    }
   }
 
   &__field {
@@ -138,7 +143,7 @@ const onSubmit = () => {
   }
 
   &__button {
-    margin-top: 4px;
+    margin-top: 12px;
     font-size: 20px;
   }
 
