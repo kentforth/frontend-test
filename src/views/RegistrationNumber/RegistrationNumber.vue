@@ -126,8 +126,8 @@ onBeforeMount(async () => {
     <h1 v-if="newRegistration">Ты зарегистрирован(а) на гонку Урочище
       <br>
       <br v-if="newRegistration">
-                               твой номер участника
     </h1>
+    <h1 class="registration-number__your-number" v-if="newRegistration">твой номер участника</h1>
 
     <h1 v-else>Хорош, Ты уже зарегистрирован(а)
       <br>
