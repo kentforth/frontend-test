@@ -57,7 +57,7 @@ defineExpose({isVisible})
   &__input {
     cursor: pointer;
     width: 100%;
-    height: 70px;
+    height: 55px;
   }
 
   &__list {

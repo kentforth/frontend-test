@@ -16,7 +16,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 20%;
-    grid-row-gap: 50px;
+    grid-row-gap: 30px;
   }
 
   &__field {
@@ -26,14 +26,21 @@
 
     input {
       width: 460px;
-      height: 70px;
+      height: 55px;
     }
+
+    .form {
+      &__error {
+        text-align: center;
+      }
+    }
+
   }
 
   &__email {
     pointer-events: none;
     width: 460px;
-    height: 70px;
+    height: 55px;
   }
 
   &__error {
@@ -41,6 +48,7 @@
     margin-top: 10px;
     font-family: 'DecimaNova', sans-serif;
     text-transform: lowercase;
+    text-align: center;
   }
 
   &__text,
