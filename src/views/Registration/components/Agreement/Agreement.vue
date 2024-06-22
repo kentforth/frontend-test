@@ -104,7 +104,8 @@ const onSubmit = () => {
     margin-bottom: 16px;
 
     p {
-      font-size: 24px;
+      font-size: 30px;
+      font-family: 'DecimaNova', sans-serif;
     }
   }
 
@@ -113,6 +114,7 @@ const onSubmit = () => {
     align-items: center;
     font-size: 20px;
     margin-top: 100px;
+    font-family: 'BoxedBook', sans-serif;
 
     span {
       margin: 0 4px;
@@ -120,6 +122,7 @@ const onSubmit = () => {
 
     button {
       font-size: 20px;
+      font-family: 'BoxedBook', sans-serif;
     }
   }
 }
