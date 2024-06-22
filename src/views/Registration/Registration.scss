@@ -3,8 +3,12 @@
   display: flex;
   justify-content: center;
 
-  &__email {
-    pointer-events: none;
+  input {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
 
   &__form {
@@ -17,12 +21,26 @@
 
   &__field {
     display: flex;
-    height: 80px;
+    height: 100px;
     flex-direction: column;
+
+    input {
+      width: 460px;
+      height: 70px;
+    }
+  }
+
+  &__email {
+    pointer-events: none;
+    width: 460px;
+    height: 70px;
   }
 
   &__error {
     color: $red;
+    margin-top: 10px;
+    font-family: 'DecimaNova', sans-serif;
+    text-transform: lowercase;
   }
 
   &__text,

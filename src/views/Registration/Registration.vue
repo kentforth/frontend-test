@@ -259,7 +259,7 @@ const closeCategoriesList = () => {
       </div>
 
       <!--AGE-->
-      <div class="registration__field">
+      <div class="registration__field registration__age">
         <Field
           v-model.trim="form.age"
           name="age"
