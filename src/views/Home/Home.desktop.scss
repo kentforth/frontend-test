@@ -78,7 +78,11 @@
       }
 
       &__poster {
-        height: 700px;
+        height: 600px;
+
+        img {
+          object-fit: contain;
+        }
       }
 
       &__logo {
