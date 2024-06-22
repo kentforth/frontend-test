@@ -19,7 +19,7 @@ export default {
     <br>
     Участники прибывают в лагерь <span class="details-info__bold">19 июля с 16:00</span>, открытие в <span class="details-info__bold">21:00</span>.
     <br>
-    Старт гонки: <span class="details-info__bold">20 июля, в 7:00</span>.
+    Старт гонки: <span class="details-info__bold">20 июля</span>, <span class="details-info__bold">в 7:00.</span>
     <br>
     <span class="details-info__bold">21 июля</span>, сворачиваем лагерь до <span class="details-info__bold">16:00</span>, возвращаемся в город.
     <br>
