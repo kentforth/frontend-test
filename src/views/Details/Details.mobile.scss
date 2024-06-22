@@ -2,10 +2,12 @@
   .details {
     flex-direction: column;
     align-items: center;
+    height: max-content;
 
     &__logo {
       img {
-        width: 400px;
+        width: 350px;
+        margin-right: 0;
       }
     }
 
@@ -15,14 +17,15 @@
 
     &__divider {
       width: 100%;
-      height: 5px;
-      margin: 16px 0;
+      height: 7px;
+      background: $white-grey;
+      margin: 32px 0;
     }
 
     @media (max-width: $mobile-portrait) {
       &__logo {
         img {
-          width: 350px;
+          width: 300px;
         }
       }
     }
@@ -30,16 +33,17 @@
     @media (max-width: $mobile) {
       &__logo {
         img {
-          width: 300px;
+          width: 200px;
+          margin-top: 20px;
         }
       }
 
       &__links {
-        font-size: 16px;
+        font-size: 12px;
         margin-top: 20px;
 
         button {
-          font-size: 16px;
+          font-size: 12px;
         }
       }
     }

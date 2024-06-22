@@ -41,13 +41,18 @@ export default {
 .details-philosophy {
   font-size: 20px;
   line-height: 24px;
-  overflow: auto;
-  height: 800px;
+  height: 100%;
+  font-family: 'BoxedBook', sans-serif;
+  overflow-y: scroll;
+  text-align: justify;
 
-  @include ui-desktop-only {
-    @media (min-width: $desktop) {
-      font-size: 30px;
-      line-height: 30px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include ui-mobile-only {
+    @media (max-width: $mobile) {
+      font-size: 12px;
     }
   }
 }
