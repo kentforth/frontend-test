@@ -28,14 +28,15 @@
 
     @media (min-width: $desktop) {
       &__content {
-        height: 76%;
-        margin-top: 62px;
+        height: 90%;
+        margin-top: 30px;
+        margin-right: 0;
+        margin-left: 4.5%;
       }
 
       &__top {
         margin-top: 20px;
       }
-
 
       &__bottom {
         margin-left: 125px;
@@ -43,18 +44,44 @@
       }
 
       &__link {
-        font-size: 65px;
+        font-size: 3rem;
       }
 
       &__poster {
         width: 590px;
-        height: 826px;
-        margin-top: 22px;
+        height: 800px;
       }
 
       &__logo {
-        width: 816px;
+        width: 80%;
+        align-self: center;
         margin: 42px 0 64px 0;
+      }
+    }
+
+    @media (min-width: $fullhd) {
+      &__content {
+        height: 85%;
+      }
+
+      &__top,
+      &__bottom {
+        grid-gap: 40px;
+      }
+
+      &__bottom {
+        margin-bottom: 50px;
+      }
+
+      &__link {
+        font-size: 5rem;
+      }
+
+      &__logo {
+        width: 77%;
+        align-self: flex-start;
+        margin-left: 80px;
+        margin-top: 30px;
       }
     }
   }
