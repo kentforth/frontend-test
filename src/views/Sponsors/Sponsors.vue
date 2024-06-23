@@ -121,7 +121,12 @@ const breakpoints = ref({
     slidesPerView: 2,
   },
   1024: {
+    slidesPerView: 3.5,
+    spaceBetween: 50
+  },
+  1440: {
     slidesPerView: 4.5,
+    spaceBetween: 50
   }
 })
 </script>
@@ -133,8 +138,6 @@ const breakpoints = ref({
       :breakpoints="breakpoints"
       :keyboard="{ enabled: true }"
       :mousewheel="{ enabled: true }"
-      :space-between="50"
-      :slides-per-view="4.5"
       class="sponsors__swiper"
     >
       <swiper-slide v-for="sponsor in sponsors" :key="sponsor.id" class="sponsors__item">
@@ -160,3 +163,5 @@ const breakpoints = ref({
 </template>
 
 <style lang="scss" scoped src="./Sponsors.scss"></style>
+
+<style lang="scss" scoped src="./Sponsors.desktop.scss"></style>

@@ -78,7 +78,7 @@ const bands = [
       :slides-per-view="4.5"
       class="sound__swiper"
     >
-      <swiper-slide v-for="band in bands" :key="band.id" class="sponsors__item">
+      <swiper-slide v-for="band in bands" :key="band.id" class="sound__item">
         <a :href="band.link" target="_blank" class="sound__image-wrapper">
           <img :src="band.image" :alt="band.name" :class="`sound__image-${band.name}`">
         </a>
