@@ -120,6 +120,7 @@ const way = computed(() => {
       return ''
   }
 })
+
 </script>
 
 <template>
@@ -150,16 +151,28 @@ const way = computed(() => {
           <p>3. Анатолий Васильев (Томск)</p>
           <br>
           <p>ФИКС</p>
-          <p>1. Павел Еркаев (Томск)</p>
-          <p>2. Егор Вострицев и Александр Рассамахин (Томск)</p>
+          <div class="heritage-item__list">
+            <span>
+              1.
+            </span>
+            <p>Павел Еркаев (Томск)</p>
+            <span>
+              2.
+            </span>
+            <p>Егор Вострицев и Александр Рассамахин (Томск)</p>
+          </div>
         </div>
         <div>
+          <br>
           <p>ЛАЙТ Мужчины</p>
           <br>
           <p>МТБ</p>
           <p>1. Степан Кузьменко (Томск)</p>
           <p>2. Герман Курмель (Северск)</p>
-          <p>3. Дмитрий Франк и Антон Кундинов (Томск)</p>
+          <div class="heritage-item__list">
+            <span>3.</span>
+            <span>Дмитрий Франк и Антон Кундинов (Томск)</span>
+          </div>
           <br>
           <p>ГРЭВЕЛ</p>
           <p>1. Марат Бакиров (Томск)</p>
@@ -172,6 +185,7 @@ const way = computed(() => {
           <p>3. Слава Мейнснер (Томск)</p>
         </div>
         <div>
+          <br>
           <p>ПРО Женщины</p>
           <br>
           <p>ГРЭВЕЛ</p>
@@ -199,6 +213,7 @@ const way = computed(() => {
           <p>3. Алексей Вардугин (Кемерово)</p>
         </div>
         <div>
+          <br>
           <p>Категория ИССЛЕДОВАТЕЛЬ</p>
           <br>
           <p>1. Сергей Иванов (Томск)</p>
@@ -206,6 +221,7 @@ const way = computed(() => {
           <p>3. Влад Шадрив</p>
         </div>
         <div>
+          <br>
           <p>номинация</p>
           <br>
           <p>Павел Еркаев (маршрут пройден на фиксе)</p>
@@ -230,6 +246,7 @@ const way = computed(() => {
           <p>1. Самуил Лесков (Новосибирск)</p>
         </div>
         <div>
+          <br>
           <p>Категория ГОНЩИК Женщины</p>
           <br>
           <p>1. Катя Берг (Томск) (МТБ)</p>
@@ -237,6 +254,7 @@ const way = computed(() => {
           <p>3. Евгения Смородина (Томск) (МТБ)</p>
         </div>
         <div>
+          <br>
           <p>Категория ИССЛЕДОВАТЕЛЬ</p>
           <br>
           <p>1. Герман Курмель (Северск)</p>
@@ -254,6 +272,14 @@ const way = computed(() => {
         </div>
         <div></div>
       </Content>
+    </div>
+
+    <div class="heritage-item__links" :class="`heritage-item__links-${route.params.year}`">
+      <RouterLink :to="{ name: 'home'}">главная</RouterLink>
+      <span>|</span>
+      <RouterLink :to="{ name: 'heritage'}">наследие</RouterLink>
+      <span>|</span>
+      <span>{{ route.params.year }}</span>
     </div>
   </div>
 </template>

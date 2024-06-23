@@ -1,5 +1,5 @@
 .registration-number {
-  padding: 40px 0;
+  padding: 140px 0 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,17 +22,17 @@
 
   &__number {
     margin-top: 10px;
-    width: 449px;
-    height: 313px;
+    width: 430px;
+    height: 294px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 250px;
     font-family: 'Stig', sans-serif;
-    background-image: url('@/assets/images/registration-number/number-background.png');
+    //background-image: url('@/assets/images/registration-number/number-background.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    box-shadow: rgba(0, 0, 0, 0.25) 00 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 00 -3px 5px;
+    //box-shadow: rgba(0, 0, 0, 0.25) 00 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 00 -3px 5px;
 
     span {
       transform: translateY(10px);
@@ -41,15 +41,21 @@
   }
 
   &__email {
-    margin-top: 25px;
-    font-size: 12px;
+    margin-top: 50px;
+    font-size: 15px;
     color: $white-grey;
     font-family: 'DecimaNova', sans-serif;
+    text-align: center;
+  }
+
+  &__spacer {
+    height: 19px;
+    width: 100px;
   }
 
   &__links {
     font-size: 20px;
-    margin-top: 47px;
+    margin-top: 81px;
     font-family: 'BoxedBook', sans-serif;
     display: flex;
 
@@ -61,9 +67,5 @@
     span {
       margin: 0 4px;
     }
-  }
-
-  &__your-number {
-    margin-top: 10px;
   }
 }

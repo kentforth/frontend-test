@@ -13,16 +13,16 @@
   }
 
   &__form {
-    margin-top: 50px;
+    margin-top: 120px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 170px;
-    grid-template-rows: 110px 110px 110px 130px;
+    grid-template-rows: max-content;
   }
 
   &__field {
     display: flex;
-    height: 100px;
+    height: 130px;
     flex-direction: column;
 
     input {
@@ -62,7 +62,7 @@
 
   &__text {
     text-align: center;
-    font-size: 12px;
+    font-size: 15px;
     font-family: 'DecimaNova', sans-serif;
   }
 
@@ -70,7 +70,7 @@
     display: flex;
     align-items: center;
     font-size: 20px;
-    margin-top: 47px;
+    margin-top: 111px;
     font-family: 'BoxedBook', sans-serif;
 
     span {

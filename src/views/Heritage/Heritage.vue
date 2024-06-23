@@ -79,7 +79,7 @@ const onClick = (title: string) => {
       :mousewheel="{ enabled: true }"
       class="heritage__swiper"
     >
-      <swiper-slide v-for="image in images" :key="image.id">
+      <swiper-slide v-for="image in images" :key="image.id" class="heritage__item">
         <button @click="onClick(image.title)" class="heritage__button">
           <img :src="image.image" :alt="image.title" class="heritage__image">
           <span>{{ image.title }}</span>

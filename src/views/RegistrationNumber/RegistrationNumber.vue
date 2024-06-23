@@ -125,7 +125,8 @@ onBeforeMount(async () => {
   <div class="registration-number" v-if="isPageLoaded">
     <h1 v-if="newRegistration">Ты зарегистрирован(а) на гонку Урочище
       <br>
-      <br v-if="newRegistration">
+      <br>
+      <br>
     </h1>
     <h1 class="registration-number__your-number" v-if="newRegistration">твой номер участника</h1>
 
@@ -133,17 +134,21 @@ onBeforeMount(async () => {
       <br>
       <span v-if="Number(riderNumber) > 0">Ты, и еще {{ riderNumber }} {{ getNoun(Number(riderNumber), 'участник', 'участника', 'участников') }}</span>
       <br>
+      <br>
     </h1>
 
-    <h1 v-if="!newRegistration" class="registration-number__your-number">твой номер</h1>
+    <h1 v-if="!newRegistration">твой номер</h1>
 
     <div class="registration-number__number">
       <span>{{ number }}</span>
     </div>
 
-    <p class="registration-number__email" v-if="newRegistration">на адрес твоей электронной почты отправлены реквизиты для оплаты и вся необходимая информация</p>
+    <p class="registration-number__email" v-if="newRegistration">на адрес твоей электронной почты отправлены реквизиты для оплаты и
+      <br>вся необходимая информация</p>
     <button class="registration-number__email" @click="onClick" v-if="isButtonVisible">отправить информацию повторно</button>
     <p v-else-if="!isButtonVisible && !newRegistration" class="registration-number__email">отправлено</p>
+
+    <div class="registration-number__spacer" v-if="isButtonVisible"></div>
 
     <div class="registration-number__links">
       <RouterLink :to="{ name: 'home' }">главная</RouterLink>
