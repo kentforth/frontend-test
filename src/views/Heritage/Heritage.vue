@@ -1,6 +1,4 @@
 <script lang="ts">
-import 'vue3-carousel/dist/carousel.css'
-import {Carousel, Slide} from 'vue3-carousel'
 
 export default {
   name: 'Heritage',
@@ -54,14 +52,14 @@ const onClick = (title: string) => {
 
 <template>
   <div class="heritage">
-    <carousel :items-to-show="3.5" class="heritage__images">
-      <slide v-for="image in images" :key="image.id">
-        <button @click="onClick(image.title)" class="heritage__button">
-          <img :src="image.image" :alt="image.title" class="heritage__image">
-          <p>{{ image.title }}</p>
-        </button>
-      </slide>
-    </carousel>
+    <!--    <carousel :items-to-show="3.5" class="heritage__images">
+          <slide v-for="image in images" :key="image.id">
+            <button @click="onClick(image.title)" class="heritage__button">
+              <img :src="image.image" :alt="image.title" class="heritage__image">
+              <p>{{ image.title }}</p>
+            </button>
+          </slide>
+        </carousel>-->
     <div class="heritage__links">
       <RouterLink :to="{ name: 'home'}">
         главная
