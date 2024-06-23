@@ -119,11 +119,9 @@ const modules = [Keyboard, Mousewheel]
 const breakpoints = ref({
   600: {
     slidesPerView: 2,
-    snapAlign: 'start',
   },
   1024: {
     slidesPerView: 4.5,
-    snapAlign: 'start',
   }
 })
 </script>
