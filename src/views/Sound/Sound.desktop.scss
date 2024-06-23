@@ -1,0 +1,16 @@
+@include ui-desktop-only {
+  .sound {
+    @media (min-width: $desktop) {
+      &__links {
+        margin-top: 166px;
+      }
+
+    }
+
+    @media (min-width: $fullhd) {
+      &__links {
+        margin-top: 159px;
+      }
+    }
+  }
+}

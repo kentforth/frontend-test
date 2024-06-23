@@ -102,3 +102,5 @@ const bands = [
 </template>
 
 <style scoped lang="scss" src="./Sound.scss"></style>
+
+<style scoped lang="scss" src="./Sound.desktop.scss"></style>
