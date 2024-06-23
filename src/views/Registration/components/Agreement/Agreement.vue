@@ -113,7 +113,7 @@ const onSubmit = () => {
     display: flex;
     align-items: center;
     font-size: 20px;
-    margin-top: 300px;
+    margin-top: 200px;
     font-family: 'BoxedBook', sans-serif;
 
     span {
