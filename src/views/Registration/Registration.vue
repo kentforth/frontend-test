@@ -144,6 +144,7 @@ const onSubmit = async () => {
 
       const email = {
         email: form.value.email,
+        gender: form.value.gender,
         number: form.value.number
       }
 
