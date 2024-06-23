@@ -1,21 +1,41 @@
 <script lang="ts">
+import {Swiper, SwiperSlide} from 'swiper/vue';
 
 export default {
   name: 'Heritage',
   components: {
-    Slide,
-    Carousel
+    Swiper,
+    SwiperSlide
   }
 }
 </script>
 
 <script setup lang="ts">
+// Import Swiper styles
+import 'swiper/css';
+
+// import required modules
+import {Keyboard, Mousewheel} from 'swiper/modules';
+
 import one from '@/assets/images/heritage/2021.png'
 import two from '@/assets/images/heritage/2022.png'
 import four from '@/assets/images/heritage/2024.png'
 import three from '@/assets/images/heritage/2023.png'
 
 const router = useRouter()
+
+const modules = [Keyboard, Mousewheel]
+
+const breakpoints = ref({
+  600: {
+    slidesPerView: 2,
+    snapAlign: 'start',
+  },
+  1024: {
+    slidesPerView: 3.5,
+    snapAlign: 'start',
+  }
+})
 
 const images = [
   {
@@ -52,14 +72,21 @@ const onClick = (title: string) => {
 
 <template>
   <div class="heritage">
-    <!--    <carousel :items-to-show="3.5" class="heritage__images">
-          <slide v-for="image in images" :key="image.id">
-            <button @click="onClick(image.title)" class="heritage__button">
-              <img :src="image.image" :alt="image.title" class="heritage__image">
-              <p>{{ image.title }}</p>
-            </button>
-          </slide>
-        </carousel>-->
+    <swiper
+      :modules="modules"
+      :breakpoints="breakpoints"
+      :keyboard="{ enabled: true }"
+      :mousewheel="{ enabled: true }"
+      class="heritage__swiper"
+    >
+      <swiper-slide v-for="image in images" :key="image.id">
+        <button @click="onClick(image.title)" class="heritage__button">
+          <img :src="image.image" :alt="image.title" class="heritage__image">
+          <span>{{ image.title }}</span>
+        </button>
+      </swiper-slide>
+    </swiper>
+
     <div class="heritage__links">
       <RouterLink :to="{ name: 'home'}">
         главная

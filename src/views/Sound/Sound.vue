@@ -74,8 +74,6 @@ const bands = [
       :breakpoints="breakpoints"
       :keyboard="{ enabled: true }"
       :mousewheel="{ enabled: true }"
-      :space-between="50"
-      :slides-per-view="4.5"
       class="sound__swiper"
     >
       <swiper-slide v-for="band in bands" :key="band.id" class="sound__item">
