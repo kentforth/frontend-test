@@ -2,8 +2,13 @@
   .container {
     padding: 40px 0;
 
+
     @media (min-width: $fullhd) {
       padding: 105px 0 0 0;
+      margin: 0 auto;
+      width: 90%;
+      display: flex;
+      justify-content: center;
     }
   }
 
@@ -65,17 +70,23 @@
 
     @media (min-width: $fullhd) {
       &__content {
-        height: 85%;
-        width: max-content;
+        height: 66%;
+        margin: 55px 0 0 80px;
+        width: 820px;
+        align-items: flex-start;
       }
 
       &__top,
       &__bottom {
         grid-gap: 50px;
+        width: max-content;
       }
 
       &__bottom {
-        margin-bottom: 50px;
+        margin-left: 60px;
+        margin-top: 0;
+        margin-bottom: 0;
+        transform: translateY(40px);
       }
 
       &__link {
@@ -92,10 +103,10 @@
       }
 
       &__logo {
-        width: 60%;
+        width: 80%;
         align-self: flex-start;
-        margin-left: 80px;
-        margin-top: 0;
+        margin-left: 69px;
+        margin-top: 10px;
         margin-bottom: 0;
       }
     }
