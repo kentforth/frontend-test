@@ -72,7 +72,7 @@ const sendEmail = async (number, email) => {
     Стоимость для участников: 3500р. <br/>
     Реквизиты для оплаты: <a href="https://www.tinkoff.ru/rm/franchuk.anton2/TX77Z93513/" target="_blank">оплата</a>
     <br/>
-    По всем вопросам: лс @snake454545
+    По всем вопросам: тг @snake454545, vk.com/id11854363
     <br>
     <br>
     После оплаты, пожалуйста, сохраните скриншот оплаты у себя на телефоне.
