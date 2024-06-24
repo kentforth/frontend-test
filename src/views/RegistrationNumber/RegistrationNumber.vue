@@ -63,7 +63,7 @@ const sendEmail = async (number, email) => {
     message: {
       subject: 'Регистрация на гонку Урочище 2024',
       html: `
-    Ты зарегистрирован(а) на гонку Урочище 2024.
+    Ты зарегистрирован${registered.value} на гонку Урочище 2024.
     <br/>
     <br>
     Номер участника: ${number} <br/>
@@ -72,7 +72,7 @@ const sendEmail = async (number, email) => {
     Стоимость для участников: 3500р. <br/>
     Реквизиты для оплаты: <a href="https://www.tinkoff.ru/rm/franchuk.anton2/TX77Z93513/" target="_blank">оплата</a>
     <br/>
-    По всем вопросам: <b>лс @snake454545</b>
+    По всем вопросам: лс @snake454545
     <br>
     <br>
     После оплаты, пожалуйста, сохраните скриншот оплаты у себя на телефоне.

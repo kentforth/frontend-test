@@ -70,6 +70,10 @@ const form = ref({
   category: null
 })
 
+const registered = computed(() => {
+  return form.value.gender.value === 'муж' ? '' : 'a'
+})
+
 onBeforeMount(() => {
   form.value.email = localStorage.getItem('email')
 })
@@ -128,10 +132,6 @@ const onSubmit = async () => {
   const isValid = checkValidation()
   if (isValid) {
     try {
-      /*if (isRegistrationFinished.value) {
-        return
-      }*/
-
       isLoading.value = true
 
       const emailbox = collection(db, 'emailbox')
@@ -153,7 +153,7 @@ const onSubmit = async () => {
         message: {
           subject: 'Регистрация на гонку Урочище 2024',
           html: `
-    Ты зарегистрирован(а) на гонку Урочище 2024.
+    Ты зарегистрирован${registered.value} на гонку Урочище 2024.
     <br/>
     <br>
     Номер участника: ${form.value.number} <br/>
@@ -162,7 +162,7 @@ const onSubmit = async () => {
     Стоимость для участников: 3500р. <br/>
     Реквизиты для оплаты: <a href="https://www.tinkoff.ru/rm/franchuk.anton2/TX77Z93513/" target="_blank">оплата</a>
     <br/>
-    По всем вопросам: <b>лс @snake454545</b>
+    По всем вопросам: лс @snake454545
     <br>
     <br>
     После оплаты, пожалуйста, сохраните скриншот оплаты у себя на телефоне.

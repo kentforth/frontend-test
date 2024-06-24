@@ -3,7 +3,7 @@
     padding: 40px 0;
 
     @media (min-width: $fullhd) {
-      padding: 58px 0 0 0;
+      padding: 105px 0 0 0;
     }
   }
 
@@ -64,18 +64,14 @@
     }
 
     @media (min-width: $fullhd) {
-      .container {
-        padding: 20px 0 !important;
-        background: red !important;
-      }
-
       &__content {
         height: 85%;
+        width: max-content;
       }
 
       &__top,
       &__bottom {
-        grid-gap: 40px;
+        grid-gap: 50px;
       }
 
       &__bottom {
@@ -87,8 +83,8 @@
       }
 
       &__poster {
-        width: 590px;
-        height: 827px;
+        width: 520px;
+        height: 727px;
       }
 
       &__link {
@@ -96,10 +92,11 @@
       }
 
       &__logo {
-        width: 77%;
+        width: 60%;
         align-self: flex-start;
         margin-left: 80px;
-        margin-top: 30px;
+        margin-top: 0;
+        margin-bottom: 0;
       }
     }
   }
