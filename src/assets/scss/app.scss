@@ -85,6 +85,14 @@ button {
     margin-top: 15px;
     text-transform: lowercase;
   }
+
+  @include ui-mobile-only {
+    @media (max-width: $mobile) {
+      &__error {
+        font-size: 8px;
+      }
+    }
+  }
 }
 
 

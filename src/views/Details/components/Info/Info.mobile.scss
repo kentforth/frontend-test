@@ -1,0 +1,9 @@
+@include ui-mobile-only {
+  .details-info {
+
+    @media (max-width: $mobile) {
+      font-size: 12px;
+      line-height: 17px;
+    }
+  }
+}

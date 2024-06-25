@@ -110,66 +110,6 @@ const onSubmit = () => {
   </div>
 </template>
 
-<style lang="scss" scoped>
-.login {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
+<style lang="scss" scoped src="./Login.scss"></style>
 
-  &__form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  &__input {
-    height: 90px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    input {
-      width: 460px;
-      height: 55px;
-    }
-  }
-
-  &__field {
-    &::placeholder {
-      text-align: center;
-    }
-  }
-
-  &__button {
-    margin-top: 12px;
-    font-size: 20px;
-  }
-
-  &__excel {
-    position: absolute;
-    top: 100px;
-    width: max-content;
-    background-color: $green;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-weight: 600;
-    color: $black;
-
-    img {
-      width: 20px;
-      margin-left: 5px;
-    }
-  }
-}
-
-@include ui-mobile-only {
-  input {
-    font-size: 20px;
-  }
-}
-</style>
+<style lang="scss" scoped src="./Login.mobile.scss"></style>

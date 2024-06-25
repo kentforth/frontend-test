@@ -148,3 +148,5 @@ export default {
 </template>
 
 <style lang="scss" scoped src="./Info.scss"></style>
+
+<style lang="scss" scoped src="./Info.mobile.scss"></style>

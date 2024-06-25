@@ -1,0 +1,15 @@
+@include ui-mobile-only {
+  .login {
+    @media (max-width: $mobile) {
+      input {
+        font-size: 12px;
+        width: 308px;
+        height: 47px;
+      }
+
+      &__button {
+        font-size: 12px;
+      }
+    }
+  }
+}

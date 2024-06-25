@@ -47,3 +47,5 @@ export default {
 </template>
 
 <style lang="scss" scoped src="./GetThere.scss"></style>
+
+<style lang="scss" scoped src="./GetThere.mobile.scss"></style>
