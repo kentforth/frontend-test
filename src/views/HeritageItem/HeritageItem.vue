@@ -109,13 +109,13 @@ const quantity = computed(() => {
 const way = computed(() => {
   switch (route.params.year) {
     case '2021':
-      return 'x.kmz'
+      return '2021.kmz'
     case '2022':
-      return 'x.kmz'
+      return '2022.kmz'
     case '2023':
-      return 'x.kmz'
+      return '2023.kmz'
     case '2024':
-      return 'x.kmz'
+      return '2024.kmz'
     default:
       return ''
   }
@@ -132,8 +132,9 @@ const way = computed(() => {
         <p>дистанция: {{ distance }}</p>
         <p>набор высоты: {{ climb }}</p>
         <p>количество участников: {{ quantity }}</p>
-        <p>маршрут: {{ way }}</p>
+        <p>маршрут: <a class="heritage-item__way" :href="`/public/files/urochishe_${route.params.year}.kmz`" download>{{ way }}</a></p>
       </div>
+
       <img :src="image" :alt="route.params.year" :class="`heritage-item__image-${route.params.year}`">
     </div>
     <div class="heritage-item__content">
