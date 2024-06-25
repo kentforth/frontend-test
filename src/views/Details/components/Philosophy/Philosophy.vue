@@ -36,24 +36,6 @@ export default {
 
   </div>
 </template>
+<style lang="scss" src="./Philosophy.scss"></style>
 
-<style lang="scss" scoped>
-.details-philosophy {
-  font-size: 20px;
-  line-height: 24px;
-  height: 100%;
-  font-family: 'BoxedBook', sans-serif;
-  overflow-y: scroll;
-  text-align: justify;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  &__bold {
-    font-family: 'BoxedBold', sans-serif;
-  }
-}
-</style>
-
-<style lang="scss" src="./Philosophy.mobile.scss"></style>
+<style lang="scss" scoped src="./Philosophy.mobile.scss"></style>

@@ -31,6 +31,8 @@
     }
 
     @media (max-width: $mobile) {
+      padding: 4% 22px;
+
       &__logo {
         img {
           width: 200px;
@@ -40,7 +42,7 @@
 
       &__links {
         font-size: 12px;
-        margin-top: 20px;
+        margin-top: 35px;
 
         button {
           font-size: 12px;
@@ -48,7 +50,7 @@
       }
 
       &__divider {
-        height: 4px;
+        height: 2px;
       }
     }
   }

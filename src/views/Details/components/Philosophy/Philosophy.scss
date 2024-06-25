@@ -1,0 +1,16 @@
+.details-philosophy {
+  font-size: 20px;
+  line-height: 24px;
+  height: 100%;
+  font-family: 'BoxedBook', sans-serif;
+  overflow-y: scroll;
+  text-align: justify;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__bold {
+    font-family: 'BoxedBold', sans-serif;
+  }
+}
