@@ -1,7 +1,7 @@
 @include ui-mobile-only {
   .registration {
     @media (max-width: $mobile) {
-      padding: 20px 7% 32px 7%;
+      padding: 20px 0.8cm 32px 0.8cm;
 
       &__agreement {
         width: 100%;
