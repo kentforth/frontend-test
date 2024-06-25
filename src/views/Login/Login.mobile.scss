@@ -1,5 +1,9 @@
 @include ui-mobile-only {
   .login {
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
     @media (max-width: $mobile) {
       input {
         font-size: 22px;
