@@ -124,11 +124,11 @@ const way = computed(() => {
 const file = computed(() => {
   switch (route.params.year) {
     case '2021':
-      return 'https://mega.nz/file/eJ1QzAoI#H-8Uwn8MDlvxD-EDoJlWsiksuL_mR4_5yzmDPmO3iLo'
+      return 'urochishe_2021.kmz'
     case '2022':
-      return '2022.kmz'
+      return 'urochishe_2022.kmz'
     case '2023':
-      return '2023.kmz'
+      return 'urochishe_2023.kmz'
     case '2024':
       return '2024.kmz'
     default:
@@ -139,9 +139,9 @@ const file = computed(() => {
 const downloadFile = () => {
   console.log('DOWN:LOAD')
   const link = document.createElement('a');
-  link.href = '/urochishe_2021.kmz';
+  link.href = `/${file.value}`;
   link.target = '_blank';
-  link.download = 'urochishe_2021.kmz';
+  link.download = file.value;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
