@@ -205,7 +205,7 @@ const closeCategoriesList = () => {
 
 <template>
   <div class="registration">
-    <Agreement v-if="!isAgree" @agree="onAgree"/>
+    <Agreement v-if="!isAgree" @agree="onAgree" class="registration__agreement"/>
 
     <Form
       v-else

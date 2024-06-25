@@ -2,9 +2,9 @@
   .agreement {
     @media (max-width: $mobile) {
       &__items {
-        margin-top: 35px;
+        margin-top: 25px;
       }
-      
+
       &__item {
         p {
           font-size: 22px;
@@ -14,6 +14,15 @@
 
       &__checkbox {
         align-self: flex-end;
+      }
+
+      &__links {
+        margin-top: 80px;
+        font-size: 12px;
+
+        button {
+          font-size: 12px;
+        }
       }
     }
   }
