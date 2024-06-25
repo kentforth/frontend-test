@@ -137,7 +137,6 @@ const file = computed(() => {
 })
 
 const downloadFile = () => {
-  console.log('DOWN:LOAD')
   const link = document.createElement('a');
   link.href = `/${file.value}`;
   link.target = '_blank';
