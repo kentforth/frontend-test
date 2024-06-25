@@ -1,10 +1,19 @@
 @include ui-mobile-only {
   .agreement {
     @media (max-width: $mobile) {
+      &__items {
+        margin-top: 35px;
+      }
+      
       &__item {
         p {
           font-size: 22px;
+          width: 236px;
         }
+      }
+
+      &__checkbox {
+        align-self: flex-end;
       }
     }
   }

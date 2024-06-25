@@ -72,7 +72,7 @@ const onSubmit = () => {
     <div class="agreement__items">
       <div class="agreement__item" v-for="item in items" :key="item.id">
         <p>{{ item.text }}</p>
-        <Checkbox @update="updateCheckbox($event, item)" v-if="item.id !== 3"/>
+        <Checkbox @update="updateCheckbox($event, item)" v-if="item.id !== 3" class="agreement__checkbox"/>
       </div>
     </div>
     <div class="agreement__links">
