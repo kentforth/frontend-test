@@ -121,6 +121,32 @@ const way = computed(() => {
   }
 })
 
+const file = computed(() => {
+  switch (route.params.year) {
+    case '2021':
+      return 'https://mega.nz/file/eJ1QzAoI#H-8Uwn8MDlvxD-EDoJlWsiksuL_mR4_5yzmDPmO3iLo'
+    case '2022':
+      return '2022.kmz'
+    case '2023':
+      return '2023.kmz'
+    case '2024':
+      return '2024.kmz'
+    default:
+      return ''
+  }
+})
+
+const downloadFile = () => {
+  console.log('DOWN:LOAD')
+  const link = document.createElement('a');
+  link.href = '/urochishe_2021.kmz';
+  link.target = '_blank';
+  link.download = 'urochishe_2021.kmz';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
 </script>
 
 <template>
@@ -132,7 +158,8 @@ const way = computed(() => {
         <p>дистанция: {{ distance }}</p>
         <p>набор высоты: {{ climb }}</p>
         <p>количество участников: {{ quantity }}</p>
-        <p>маршрут: <a class="heritage-item__way" :href="`/public/files/urochishe_${route.params.year}.kmz`" download>{{ way }}</a></p>
+        <p>маршрут: <span class="heritage-item__way" @click="downloadFile">{{ way }}</span></p>
+        <!--        <p>маршрут: <a class="heritage-item__way" :href="file" download>{{ way }}</a></p>-->
       </div>
 
       <img :src="image" :alt="route.params.year" :class="`heritage-item__image-${route.params.year}`">
