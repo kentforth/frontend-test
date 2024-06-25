@@ -1,9 +1,7 @@
 @include ui-mobile-only {
-  .details-get-there {
-
+  .registration {
     @media (max-width: $mobile) {
-      font-size: 12px;
-      line-height: 13px;
+      padding: 20px 32px;
     }
   }
 }

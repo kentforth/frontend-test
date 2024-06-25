@@ -1,0 +1,11 @@
+@include ui-mobile-only {
+  .agreement {
+    @media (max-width: $mobile) {
+      &__item {
+        p {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}

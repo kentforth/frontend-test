@@ -325,3 +325,5 @@ const closeCategoriesList = () => {
 </template>
 
 <style lang="scss" scoped src="./Registration.scss"></style>
+
+<style lang="scss" scoped src="./Registration.mobile.scss"></style>

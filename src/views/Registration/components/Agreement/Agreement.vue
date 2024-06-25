@@ -85,45 +85,6 @@ const onSubmit = () => {
   </div>
 </template>
 
-<style lang="scss" scoped>
-.agreement {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+<style lang="scss" scoped src="./Agreement.scss"></style>
 
-  &__items {
-    margin-top: 200px;
-  }
-
-  &__item {
-    display: grid;
-    grid-gap: 50px;
-    grid-template-columns: 1fr max-content;
-    align-items: center;
-    margin-bottom: 16px;
-
-    p {
-      font-size: 30px;
-      font-family: 'DecimaNova', sans-serif;
-    }
-  }
-
-  &__links {
-    display: flex;
-    align-items: center;
-    font-size: 20px;
-    margin-top: 200px;
-    font-family: 'BoxedBook', sans-serif;
-
-    span {
-      margin: 0 4px;
-    }
-
-    button {
-      font-size: 20px;
-      font-family: 'BoxedBook', sans-serif;
-    }
-  }
-}
-</style>
+<style lang="scss" scoped src="./Agreement.mobile.scss"></style>
