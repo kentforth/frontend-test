@@ -1,8 +1,11 @@
 @include ui-mobile-only {
   .agreement {
     @media (max-width: $mobile) {
+      align-items: flex-start;
+
       &__items {
         margin-top: 25px;
+        width: 100%;
       }
 
       &__item {
