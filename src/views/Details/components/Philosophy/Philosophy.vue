@@ -53,11 +53,7 @@ export default {
   &__bold {
     font-family: 'BoxedBold', sans-serif;
   }
-
-  @include ui-mobile-only {
-    @media (max-width: $mobile) {
-      font-size: 12px;
-    }
-  }
 }
 </style>
+
+<style lang="scss" src="./Philosophy.mobile.scss"></style>
