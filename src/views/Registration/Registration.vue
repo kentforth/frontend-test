@@ -56,7 +56,7 @@ const hasCategoryError = ref(false)
 
 
 const genders = ref(['муж', 'жен'])
-const categories = ref(['гонщик (ГРЭВЕЛ)', 'гонщик (МТБ)', 'гонщик (ФИКС)', 'искатель (ГРЭВЕЛ)', 'искатель (МТБ)', 'искатель (ФИКС)', 'исследователь(другое)'])
+const categories = ref(['гонщик (ГРЭВЕЛ)', 'гонщик (МТБ)', 'гонщик (ФИКС)', 'искатель (ГРЭВЕЛ)', 'искатель (МТБ)', 'искатель (ФИКС)', 'исследователь (другое)'])
 
 const form = ref({
   email: null,
@@ -218,7 +218,7 @@ const closeCategoriesList = () => {
       <input type="text" v-model.trim="form.email" class="registration__email">
 
       <!--PHONE-->
-      <div class="registration__field">
+      <div class="registration__field registration__phone">
         <input
           v-model="form.phone"
           type="tel"
@@ -230,7 +230,7 @@ const closeCategoriesList = () => {
       </div>
 
       <!--NAME-->
-      <div class="registration__field">
+      <div class="registration__field registration__name">
         <Field
           v-model.trim="form.name"
           name="name"
@@ -241,7 +241,7 @@ const closeCategoriesList = () => {
       </div>
 
       <!--CITY-->
-      <div class="registration__field">
+      <div class="registration__field registration__city">
         <Field
           v-model.trim="form.city"
           name="city"
@@ -252,7 +252,7 @@ const closeCategoriesList = () => {
       </div>
 
       <!--LAST NAME-->
-      <div class="registration__field">
+      <div class="registration__field registration__last-name">
         <Field
           v-model.trim="form.lastName"
           name="lastName"
@@ -275,7 +275,7 @@ const closeCategoriesList = () => {
       </div>
 
       <!--GENDER-->
-      <div class="registration__field">
+      <div class="registration__field registration__gender">
         <Select
           ref="genderRef"
           v-model="form.gender"
@@ -289,7 +289,7 @@ const closeCategoriesList = () => {
       </div>
 
       <!--CATEGORY-->
-      <div class="registration__field">
+      <div class="registration__field registration__category">
         <Select
           ref="categoriesRef"
           v-model="form.category"

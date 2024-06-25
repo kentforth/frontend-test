@@ -47,38 +47,6 @@ defineExpose({isVisible})
   </div>
 </template>
 
-<style lang="scss" scoped>
-.select {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  z-index: 999999;
+<style lang="scss" scoped src="./Select.scss"></style>
 
-  &__input {
-    cursor: pointer;
-    width: 100%;
-    height: 55px;
-  }
-
-  &__list {
-    width: 100%;
-    box-shadow: 0 8px 10px -4px rgba(0, 0, 0, 0.68);
-    font-size: 24px;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: $black;
-  }
-
-  &__item {
-    width: 100%;
-    padding: 10px 20px;
-    cursor: pointer;
-    color: $white-grey;
-
-    &:hover {
-      background: $brown;
-    }
-  }
-}
-</style>
+<style lang="scss" scoped src="./Select.mobile.scss"></style>
