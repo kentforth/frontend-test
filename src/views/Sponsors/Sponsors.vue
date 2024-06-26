@@ -120,7 +120,7 @@ const breakpoints = ref({
   400: {
     direction: 'vertical',
     spaceBetween: 70,
-    slidesPerView: 2.5,
+    slidesPerView: 'auto'
   },
   600: {
     slidesPerView: 2,
