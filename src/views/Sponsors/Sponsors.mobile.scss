@@ -1,0 +1,101 @@
+@include ui-mobile-only {
+  .sponsors {
+    @media (max-width: $mobile) {
+      padding: 35px 0 0 0;
+
+      &__image-wrapper {
+        width: 100%;
+        height: max-content;
+        padding-bottom: 0;
+      }
+
+      &__swiper {
+        height: 700px;
+        padding: 0;
+      }
+
+      &__logo {
+        &-gosha {
+          width: 76px;
+          height: 110px;
+        }
+
+        &-sarmatian {
+          width: 100px;
+          height: 110px;
+        }
+
+        &-yarbeg {
+          width: 110px;
+          height: 110px;
+        }
+
+        &-hog {
+          width: 71px;
+          height: 112px;
+        }
+
+        &-ded {
+          width: 246px;
+          height: 28px;
+        }
+
+        &-shulz {
+          height: 53px;
+          width: 246px;
+        }
+
+        &-nice-to-trip {
+          width: 114px;
+          height: 114px;
+        }
+
+        &-neutrino {
+          width: 202px;
+          height: 79px;
+        }
+
+        &-fatrat {
+          width: 164px;
+          height: 69px;
+        }
+
+        &-daleko {
+          width: 114px;
+          height: 110px;
+        }
+
+        &-noji {
+          width: 246px;
+          height: 45px;
+        }
+      }
+
+      &__item {
+        p {
+          width: 250px;
+          font-size: 12px;
+          line-height: 13px;
+          margin-top: 20px;
+        }
+      }
+
+      &__narrow {
+        width: 250px !important;
+      }
+
+      &__links {
+        font-size: 12px;
+        margin-top: 45px;
+      }
+
+      .swiper-wrapper {
+        align-items: flex-start;
+      }
+
+      .swiper-slide {
+        height: max-content !important;
+      }
+    }
+  }
+}
