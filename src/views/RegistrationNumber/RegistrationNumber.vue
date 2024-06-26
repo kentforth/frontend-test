@@ -163,3 +163,5 @@ onBeforeMount(async () => {
 </template>
 
 <style lang="scss" scoped src="./RegistrationNumber.scss"></style>
+
+<style lang="scss" scoped src="./RegistrationNumber.mobile.scss"></style>
