@@ -5,7 +5,9 @@
       flex-direction: column;
       align-items: center;
       padding-top: 35px;
+      padding-bottom: 0;
       height: 100vh;
+      overflow: hidden;
 
       &__dates {
         font-size: 12px;
@@ -15,7 +17,7 @@
       &__content {
         height: calc(80% - 124px);
         overflow: scroll;
-        
+
         &::-webkit-scrollbar {
           display: none;
         }
