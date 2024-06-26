@@ -24,5 +24,11 @@ export default {
     font-size: 20px;
     color: $white-grey;
   }
+
+  @include ui-mobile-only {
+    @media (max-width: $mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
 }
 </style>

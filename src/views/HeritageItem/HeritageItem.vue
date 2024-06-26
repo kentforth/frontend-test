@@ -158,7 +158,6 @@ const downloadFile = () => {
         <p>набор высоты: {{ climb }}</p>
         <p>количество участников: {{ quantity }}</p>
         <p>маршрут: <span class="heritage-item__way" @click="downloadFile">{{ way }}</span></p>
-        <!--        <p>маршрут: <a class="heritage-item__way" :href="file" download>{{ way }}</a></p>-->
       </div>
 
       <img :src="image" :alt="route.params.year" :class="`heritage-item__image-${route.params.year}`">
@@ -312,3 +311,5 @@ const downloadFile = () => {
 </template>
 
 <style lang="scss" scoped src="./HeritageItem.scss"></style>
+
+<style lang="scss" scoped src="./HeritageItem.mobile.scss"></style>
