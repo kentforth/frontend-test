@@ -2,6 +2,8 @@
   .sponsors {
     @media (max-width: $mobile) {
       padding: 35px 0 0 0;
+      overflow: hidden;
+      height: 100vh;
 
       &__image-wrapper {
         width: 100%;
@@ -10,7 +12,7 @@
       }
 
       &__swiper {
-        height: 60vh;
+        height: 80%;
         padding: 0;
         background: green;
       }
@@ -87,7 +89,8 @@
 
       &__links {
         font-size: 12px;
-        margin-top: 45px;
+        margin-top: auto;
+        margin-bottom: 45px;
       }
 
       .swiper-wrapper {
