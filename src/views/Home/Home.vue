@@ -5,6 +5,12 @@ export default {
 </script>
 
 <script setup lang="ts">
+import {db} from '@/services/firebase'
+import {query, collection, getDocs, addDoc} from 'firebase/firestore'
+
+const router = useRouter()
+
+const foundEmail = ref(null)
 const isRegistrationFinished = ref(false)
 
 const topLinks = [
@@ -42,6 +48,31 @@ const bottomLinks = [
     title: 'наследие',
   }
 ]
+
+onBeforeMount(async () => {
+  const email = localStorage.getItem('email')
+
+  let emails = []
+
+  const queryEmails = await query(collection(db, 'emails'))
+
+  const docsEmails = await getDocs(queryEmails)
+
+  docsEmails.forEach((doc: any) => {
+    emails.push(doc.data())
+  })
+
+  foundEmail.value = emails.find((el) => el.email === email)
+})
+
+const goToPage = (name: string) => {
+  if (isRegistrationFinished.value && !foundEmail.value && name === 'registration') {
+    return
+  }
+
+  router.push({name: name})
+}
+
 </script>
 
 <template>
@@ -50,21 +81,28 @@ const bottomLinks = [
 
     <div class="home__content">
       <div class="home__top">
-        <RouterLink :to="{ name: 'details', query: { page: link.page}}" class="home__link" v-for="link in topLinks" :key="link.id">
+        <RouterLink
+          v-for="link in topLinks" :key="link.id"
+          :to="{ name: 'details', query: { page: link.page}}"
+          class="home__link"
+        >
           {{ link.title }}
         </RouterLink>
       </div>
       <img src="@/assets/images/logo.png" alt="logo" class="home__logo">
       <div class="home__bottom">
-        <RouterLink :to="{name: link.link}" class="home__link" v-for="link in bottomLinks" :key="link.id">
+        <button
+          v-for="link in bottomLinks"
+          :key="link.id"
+          class="home__link"
+          @click="goToPage(link.link)"
+        >
           {{ link.title }}
           <p>{{ link.subTitle }}</p>
-        </RouterLink>
+        </button>
         <p class="home__finished" v-if="isRegistrationFinished">лучше никогда чем поздно<br>регистрация закрыта</p>
       </div>
     </div>
-
-
   </div>
 </template>
 
