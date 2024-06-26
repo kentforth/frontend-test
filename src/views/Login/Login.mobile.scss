@@ -1,9 +1,10 @@
 @include ui-mobile-only {
   .login {
-    
+
     @media (max-width: $mobile) {
       flex-direction: column;
       align-items: center;
+      overflow: hidden;
 
       &__form {
         flex-direction: column;
