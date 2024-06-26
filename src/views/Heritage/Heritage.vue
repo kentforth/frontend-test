@@ -27,6 +27,11 @@ const router = useRouter()
 const modules = [Keyboard, Mousewheel]
 
 const breakpoints = ref({
+  200: {
+    direction: 'vertical',
+    spaceBetween: 50,
+    slidesPerView: 'auto'
+  },
   600: {
     slidesPerView: 2,
     snapAlign: 'start',
@@ -98,3 +103,5 @@ const onClick = (title: string) => {
 </template>
 
 <style lang="scss" scoped src="./Heritage.scss"></style>
+
+<style lang="scss" scoped src="./Heritage.mobile.scss"></style>
