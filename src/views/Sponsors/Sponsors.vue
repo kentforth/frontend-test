@@ -117,7 +117,7 @@ const sponsors = [
 const modules = [Keyboard, Mousewheel]
 
 const breakpoints = ref({
-  400: {
+  200: {
     direction: 'vertical',
     spaceBetween: 70,
     slidesPerView: 'auto'
