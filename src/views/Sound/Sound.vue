@@ -25,6 +25,11 @@ import dragonBlood from '@/assets/images/sound/dragon-blood.png'
 const modules = [Keyboard, Mousewheel]
 
 const breakpoints = ref({
+  200: {
+    direction: 'vertical',
+    spaceBetween: 70,
+    slidesPerView: 'auto'
+  },
   600: {
     slidesPerView: 2,
     snapAlign: 'start',
@@ -102,3 +107,5 @@ const bands = [
 <style scoped lang="scss" src="./Sound.scss"></style>
 
 <style scoped lang="scss" src="./Sound.desktop.scss"></style>
+
+<style scoped lang="scss" src="./Sound.mobile.scss"></style>
