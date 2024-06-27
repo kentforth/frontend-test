@@ -80,6 +80,7 @@ const onSubmit = () => {
           Город: 'city',
           Категория: 'category',
           Телефон: 'phone',
+          ВремяРегистрации: 'date'
         }"
     >
       <span>Сохранить в excel</span>
