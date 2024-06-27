@@ -29,6 +29,10 @@
     @media (max-width: $mobile) {
       align-items: center;
 
+      &__content {
+        padding-bottom: 40px;
+      }
+
       &__poster {
         width: 259px;
         height: 361px;
