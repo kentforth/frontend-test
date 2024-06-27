@@ -151,6 +151,7 @@ const onSubmit = async () => {
 
       const templateParams = {
         to: form.value.email,
+        from: 'urochisherace@gmail.com',
         message: {
           subject: 'Регистрация на гонку Урочище 2024',
           html: `
