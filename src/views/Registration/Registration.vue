@@ -56,7 +56,7 @@ const hasCategoryError = ref(false)
 
 
 const genders = ref(['муж', 'жен'])
-const categories = ref(['гонщик (ГРЭВЕЛ)', 'гонщик (МТБ)', 'гонщик (ФИКС)', 'искатель (ГРЭВЕЛ)', 'искатель (МТБ)', 'искатель (ФИКС)', 'исследователь (другое)'])
+const categories = ref(['гонщик (ГРЭВЕЛ)', 'гонщик (МТБ)', 'гонщик (ФИКС)', 'исследователь (ГРЭВЕЛ)', 'исследователь (МТБ)', 'исследователь (ФИКС)', 'исследователь (другое)'])
 
 const form = ref({
   email: null,
@@ -80,6 +80,7 @@ onBeforeMount(() => {
 
 const onAgree = () => {
   isAgree.value = true
+  window.scrollTo(0, 0);
 }
 
 const checkPhone = () => {
