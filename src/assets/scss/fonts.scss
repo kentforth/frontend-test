@@ -1,20 +1,7 @@
-// Primitive Russian
-@font-face {
-  font-family: 'PrimitiveRussian';
-  src: url('@/assets/fonts/PrimitiveRussian/1350_primitive_russian.otf') format('opentype');
-  font-weight: normal;
-}
-
-// Artifact Element
-@font-face {
-  font-family: 'ArtifactElement';
-  src: url('@/assets/fonts/ArtifactElement/artifakt_element_regular.ttf') format('truetype');
-  font-weight: normal;
-}
-
 // Stig
 @font-face {
   font-family: 'Stig';
+  font-display: block;
   src: url('@/assets/fonts/Stig/stig.otf') format('opentype');
   font-weight: normal;
 }
@@ -22,6 +9,7 @@
 // Stig
 @font-face {
   font-family: 'ST';
+  font-display: block;
   src: url('@/assets/fonts/ST/ST-nizhegorodsky.otf') format('opentype');
   font-weight: normal;
 }
@@ -29,6 +17,7 @@
 // DecimaNova
 @font-face {
   font-family: 'DecimaNova';
+  font-display: block;
   src: url('@/assets/fonts/DecimaNova/decima-nova-pro-regular.otf') format('opentype');
   font-weight: normal;
 }
@@ -36,18 +25,21 @@
 // Boxed
 @font-face {
   font-family: 'BoxedBook';
+  font-display: block;
   src: url('@/assets/fonts/Boxed/boxed-book.otf') format('opentype');
   font-weight: normal;
 }
 
 @font-face {
   font-family: 'Boxed';
+  font-display: block;
   src: url('@/assets/fonts/Boxed/boxed-regular.otf') format('opentype');
   font-weight: normal;
 }
 
 @font-face {
   font-family: 'BoxedBold';
+  font-display: block;
   src: url('@/assets/fonts/Boxed/boxed-regular-bold.otf') format('opentype');
   font-weight: normal;
 }
