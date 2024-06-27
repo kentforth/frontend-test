@@ -87,7 +87,7 @@ const router = createRouter({
 
   scrollBehavior(to, from, savedPosition) {
     if (from.name !== 'login' && to.name === 'home') {
-      return { top: 100 }
+      return { top: 140 }
     } else {
       return { top: 0 }
     }
