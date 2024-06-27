@@ -83,7 +83,15 @@ const router = createRouter({
       name: 'heritageItem',
       component: () => import('../views/HeritageItem/HeritageItem.vue')
     }
-  ]
+  ],
+
+  scrollBehavior(to, from, savedPosition) {
+    if (from.name !== 'login') {
+      return { top: 100 }
+    } else {
+      return { top: 0 }
+    }
+  }
 })
 
 router.beforeEach(async (to, from, next) => {
