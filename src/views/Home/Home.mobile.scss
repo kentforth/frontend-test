@@ -28,14 +28,29 @@
 
     @media (max-width: $mobile) {
       align-items: center;
-      
+
       &__poster {
         width: 259px;
         height: 361px;
       }
 
+      &__bottom {
+        margin-left: 0;
+      }
+
+      &__top,
+      &__bottom {
+        grid-gap: 20px;
+        justify-content: center;
+      }
+
+      &__logo {
+        margin-top: 20px;
+        margin-bottom: 30px;
+      }
+
       &__link {
-        font-size: 16px;
+        font-size: 22px;
 
         p {
           font-size: 14px;
