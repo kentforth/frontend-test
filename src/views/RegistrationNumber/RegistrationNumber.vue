@@ -60,7 +60,6 @@ const onClick = () => {
 const sendEmail = async (number, email) => {
   const templateParams = {
     to: email,
-    from: 'urochisherace@gmail.com',
     message: {
       subject: 'Регистрация на гонку Урочище 2024',
       html: `
