@@ -214,6 +214,7 @@ const closeCategoriesList = () => {
       class="form registration__form"
       @submit="onSubmit"
       @invalid-submit="checkValidation"
+      :class="isLoading ? 'registration__blur' : ''"
     >
       <input type="text" v-model.trim="form.email" class="registration__email">
 
@@ -313,14 +314,14 @@ const closeCategoriesList = () => {
         <span>|</span>
         <button>завершить</button>
       </div>
-
-      <div class="registration__loader" v-if="isLoading">
-        <div class="registration__dot registration__dot-1"></div>
-        <div class="registration__dot registration__dot-2"></div>
-        <div class="registration__dot registration__dot-3"></div>
-        <div class="registration__dot registration__dot-4"></div>
-      </div>
     </Form>
+
+    <div class="registration__loader" v-if="isLoading">
+      <div class="registration__dot registration__dot-1"></div>
+      <div class="registration__dot registration__dot-2"></div>
+      <div class="registration__dot registration__dot-3"></div>
+      <div class="registration__dot registration__dot-4"></div>
+    </div>
   </div>
 </template>
 

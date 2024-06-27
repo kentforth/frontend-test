@@ -27,6 +27,13 @@
     }
 
     @media (max-width: $mobile) {
+      align-items: center;
+      
+      &__poster {
+        width: 259px;
+        height: 361px;
+      }
+
       &__link {
         font-size: 16px;
 

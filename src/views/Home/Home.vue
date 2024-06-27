@@ -107,5 +107,7 @@ const goToPage = (name: string) => {
 </template>
 
 <style lang="scss" scoped src="./Home.scss"></style>
-<style lang="scss" scoped src="./Home.mobile.scss"></style>
+
 <style lang="scss" scoped src="./Home.desktop.scss"></style>
+
+<style lang="scss" scoped src="./Home.mobile.scss"></style>

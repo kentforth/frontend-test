@@ -85,12 +85,11 @@
 
   &__loader {
     font-size: 20px;
-    position: relative;
     width: 4em;
     height: 1em;
-    grid-column: span 2;
-    margin: 30px auto 0 auto;
-    justify-self: center;
+    position: fixed;
+    top: 60%;
+    left: 41%;
   }
 
   &__dot {
@@ -126,6 +125,10 @@
       animation-name: reveal;
       animation-direction: reverse;
     }
+  }
+
+  &__blur {
+    display: none;
   }
 }
 
