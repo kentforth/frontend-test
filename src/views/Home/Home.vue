@@ -11,7 +11,7 @@ import {query, collection, getDocs, addDoc} from 'firebase/firestore'
 const router = useRouter()
 
 const foundEmail = ref(null)
-const isRegistrationFinished = ref(false)
+const isRegistrationFinished = ref(true)
 
 const topLinks = [
   {
