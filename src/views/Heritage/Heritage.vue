@@ -11,11 +11,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-// Import Swiper styles
 import 'swiper/css';
 
-// import required modules
-import {Keyboard, Mousewheel} from 'swiper/modules';
+import { Keyboard, Mousewheel } from 'swiper/modules';
 
 import one from '@/assets/images/heritage/2021.png'
 import two from '@/assets/images/heritage/2022.png'
@@ -66,10 +64,6 @@ const images = [
 ]
 
 const onClick = (title: string) => {
-  if (title === '2024') {
-    return
-  }
-
   router.push({name: 'heritageItem', params: {year: title}})
 }
 

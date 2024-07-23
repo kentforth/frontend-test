@@ -70,7 +70,7 @@ const distance = computed(() => {
     case '2023':
       return '117 км'
     case '2024':
-      return '98.5 км'
+      return '103 км'
     default:
       return ''
   }
@@ -85,7 +85,7 @@ const climb = computed(() => {
     case '2023':
       return '1582 м'
     case '2024':
-      return '1468 м'
+      return '1397 м'
     default:
       return ''
   }
@@ -100,7 +100,7 @@ const quantity = computed(() => {
     case '2023':
       return 'x'
     case '2024':
-      return 'x'
+      return '35'
     default:
       return ''
   }
@@ -130,7 +130,7 @@ const file = computed(() => {
     case '2023':
       return 'urochishe_2023.kmz'
     case '2024':
-      return '2024.kmz'
+      return 'urochishe_2024.kmz'
     default:
       return ''
   }
@@ -292,11 +292,32 @@ const downloadFile = () => {
         <div>
           <p>зачет:</p>
           <p>Категория ГОНЩИК Мужчины</p>
+          <br/>
+          <p>МТБ</p>
+          <p>1. Вячеслав Антонов (Томск)</p>
+          <p>2. Евгений Крысенко (Новосибирск)</p>
+          <p>3. Олег Фролов (Кемерово)</p>
+          <br/>
+          <p>ГРЭВЕЛ</p>
+          <p>1. Сергей Павлов (Томск) (абсолют)</p>
+          <p>2. Никита Шульгин (Кемерово)</p>
+          <p>3. Влад Новожилов (Новосибирск)</p>
+          <br>
+          <p>ФИКС</p>
+          <p>1. Николай Борисов (Томск)</p>
+          <p>2. Эдуард Корнев (Новосибирск)</p>
         </div>
         <div>
           <p>Категория ГОНЩИК Женщины</p>
+          <br>
+          <p>ГРЭВЕЛ</p>
+          <p>1. Ольга Дерешева (Томск)</p>
         </div>
-        <div></div>
+        <div>
+          <p>Категория ИССЛЕДОВАТЕЛЬ</p>
+          <br>
+          <p>1. Сандро Иванов (Новосибирск)</p>
+        </div>
       </Content>
     </div>
 
