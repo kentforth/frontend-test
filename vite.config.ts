@@ -8,17 +8,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 
 dns.setDefaultResultOrder('verbatim')
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `
-          @import "@/assets/scss/mixins.scss";
-        `
-      }
-    }
-  },
   plugins: [
     vue(),
     checker({ typescript: true }),
@@ -48,10 +38,11 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  pwa: {
-    workboxOptions: {
-      skipWaiting: true,
-      clientsClaim: true
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/assets/scss/_variables.scss";`
+      }
     }
   }
 })

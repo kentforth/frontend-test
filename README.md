@@ -1,3 +1,2 @@
-# urochishe2024
+# Vue 3 + Typescript Scaffold
 
-Website for registering riders on the bicycle competition in 2024

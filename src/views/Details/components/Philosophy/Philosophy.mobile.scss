@@ -1,9 +1,0 @@
-@include ui-mobile-only {
-  .details-philosophy {
-
-    @media (max-width: $mobile) {
-      font-size: 12px;
-      line-height: 13px;
-    }
-  }
-}

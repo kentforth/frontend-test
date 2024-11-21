@@ -1,5 +1,4 @@
-@import "variables";
-@import "fonts";
+@import 'variables';
 
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
@@ -17,8 +16,6 @@ html {
 body {
   margin: 0 !important;
   padding: 0 !important;
-  background: $black;
-  color: $white;
 }
 
 h1,
@@ -38,7 +35,6 @@ ul {
 a {
   text-decoration: none;
   cursor: pointer;
-  color: $white;
 }
 
 button {
@@ -50,48 +46,4 @@ button {
   align-items: center;
   justify-content: center;
   border: none;
-  background-color: transparent;
-  color: $white;
-  font-family: 'BoxedBook', sans-serif;
 }
-
-.container {
-  margin: 0 auto;
-  width: 90%;
-}
-
-.form {
-  input {
-    outline: none;
-    font-size: 30px;
-    background: transparent;
-    border: none;
-    padding: 10px 24px;
-    color: $white;
-    text-align: center;
-    font-family: 'DecimaNova', sans-serif;
-
-    box-shadow: rgba(0, 0, 0, 0.5) 1px 2px 5px 0 inset;
-
-    &::placeholder {
-      color: $grey;
-    }
-  }
-
-  &__error {
-    color: $red;
-    font-family: 'DecimaNova', sans-serif;
-    margin-top: 15px;
-    text-transform: lowercase;
-  }
-
-  @include ui-mobile-only {
-    @media (max-width: $mobile) {
-      &__error {
-        font-size: 8px;
-      }
-    }
-  }
-}
-
-
