@@ -9,6 +9,7 @@ import help from '@/assets/icons/help.png'
 
 const labels = ['Метки', 'Тип записи', 'Логин', 'Пароль']
 const items = ['LDAP', 'Локальная']
+const selected = ref(null)
 
 const onAdd = () => {
   console.log('ADD')
@@ -33,9 +34,11 @@ const onAdd = () => {
       </div>
 
       <div class="form__inputs">
-        <v-text-field label="Label"></v-text-field>
+        <v-text-field variant="outlined" />
+
+        <v-select :items="items" variant="outlined" v-model="selected" append-icon="dropdown" />
         <!--        <UiInput />-->
-        <UiSelect :items="items" />
+        <!--        <UiSelect :items="items" />-->
       </div>
     </div>
   </div>
