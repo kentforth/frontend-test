@@ -47,9 +47,7 @@ const validateForm = debounce(() => {
     return
   }
 
-  console.log('ACCOUNTS', accountStore.accounts)
-
-  localStorage.setItem('accounts', accountStore.accounts)
+  accountStore.saveAccounts()
 }, 500)
 </script>
 

@@ -12,6 +12,7 @@ export const useAccountStore = defineStore('counter', () => {
     }
   ])
   const accounts = ref([])
+  let savedAccounts = []
 
   const addAccount = () => {
     const elements = [
@@ -41,18 +42,59 @@ export const useAccountStore = defineStore('counter', () => {
 
   const deleteAccount = (index: number) => {
     accounts.value.splice(index, 1)
+
+    const storageAccounts = localStorage.getItem('accounts')
+
+    if (storageAccounts) {
+      const items = JSON.parse(storageAccounts)
+      items.splice(index, 1)
+      localStorage.setItem('accounts', JSON.stringify(items))
+    }
   }
 
   const updateAccountType = (index: number) => {
     const itemValue = items.value.find((el) => el.value === accounts.value[index][1].value)
+
     accounts.value[index][1].title = itemValue.title
-    console.log('ACCOUNTS', accounts.value)
+
+    if (accounts.value[index][1].value === 'ldap') {
+      accounts.value[index][3].value = null
+    }
+  }
+
+  const saveAccounts = () => {
+    savedAccounts = []
+
+    savedAccounts = JSON.parse(JSON.stringify(accounts.value))
+
+    savedAccounts = savedAccounts.map((el) => {
+      if (el[0].value) {
+        let marks = el[0].value.split(';')
+
+        marks = marks.map((mark) => {
+          return {
+            text: mark
+          }
+        })
+
+        if (el[0].id === 'marks') el[0] = [...marks]
+
+        return el
+      }
+
+      if (el[0].id === 'marks') el[0] = { text: null }
+
+      return el
+    })
+
+    localStorage.setItem('accounts', JSON.stringify(savedAccounts))
   }
 
   return {
     items,
     accounts,
     addAccount,
+    saveAccounts,
     deleteAccount,
     updateAccountType
   }
