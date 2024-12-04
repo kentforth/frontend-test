@@ -51,10 +51,14 @@
     margin-top: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 0.2fr;
-    grid-gap: 20px;
+    grid-column-gap: 20px;
   }
 
   &__btn-delete {
     justify-self: end;
+  }
+
+  &__login-field {
+    grid-column: span 2;
   }
 }
