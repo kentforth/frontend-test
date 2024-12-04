@@ -7,6 +7,7 @@ export default {
 <script setup lang="ts">
 import help from '@/assets/icons/help.png'
 import { useAccountStore } from '@/store/account'
+import debounce from 'lodash.debounce'
 
 const labels = ['Метки', 'Тип записи', 'Логин', 'Пароль']
 
@@ -39,15 +40,17 @@ const resetPasswordValidation = async (index: number) => {
   }
 }
 
-const validateForm = () => {
+const validateForm = debounce(() => {
   if (!form.value.isValid) {
     form.value.validate()
 
     return
   }
 
-  console.log('VALID')
-}
+  console.log('ACCOUNTS', accountStore.accounts)
+
+  localStorage.setItem('accounts', accountStore.accounts)
+}, 500)
 </script>
 
 <template>
