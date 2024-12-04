@@ -43,14 +43,18 @@
   &__labels {
     display: grid;
     color: $lightgrey100;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 0.2fr;
+    grid-gap: 20px;
   }
 
-  &__inputs {
+  &__form {
     margin-top: 10px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 0.2fr;
+    grid-gap: 20px;
+  }
+
+  &__btn-delete {
+    justify-self: end;
   }
 }

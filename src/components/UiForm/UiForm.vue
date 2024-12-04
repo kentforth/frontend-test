@@ -8,11 +8,53 @@ export default {
 import help from '@/assets/icons/help.png'
 
 const labels = ['Метки', 'Тип записи', 'Логин', 'Пароль']
-const items = ['LDAP', 'Локальная']
-const selected = ref(null)
+const items = [
+  {
+    value: 'ldap',
+    title: 'LDAP'
+  },
+  {
+    value: 'local',
+    title: 'Локальная'
+  }
+]
+
+const fields = ref([])
 
 const onAdd = () => {
-  console.log('ADD')
+  const elements = [
+    [
+      {
+        id: 'marks',
+        value: null
+      },
+      {
+        id: 'type',
+        value: items[1].value,
+        title: items[1].title
+      },
+      {
+        id: 'login',
+        value: null
+      },
+      {
+        id: 'password',
+        value: null
+      }
+    ]
+  ]
+
+  fields.value.push(...elements)
+}
+
+const onDelete = (index: number) => {
+  fields.value.splice(index, 1)
+  console.log('FIELDS', fields.value)
+}
+
+const onChange = (index: number) => {
+  const itemValue = items.find((el) => el.value === fields.value[index][1].value)
+  fields.value[index][1].title = itemValue.title
 }
 </script>
 
@@ -33,13 +75,37 @@ const onAdd = () => {
         <span v-for="label in labels" :key="label">{{ label }}</span>
       </div>
 
-      <div class="form__inputs">
-        <v-text-field variant="outlined" />
+      <v-form class="form__form">
+        <template v-for="(field, index) in fields" :key="field[0].id">
+          <v-text-field variant="outlined" maxLength="50" v-model="fields[index][0].value" />
 
-        <v-select :items="items" variant="outlined" v-model="selected" append-icon="dropdown" />
-        <!--        <UiInput />-->
-        <!--        <UiSelect :items="items" />-->
-      </div>
+          <v-select
+            v-model="fields[index][1].value"
+            :items="items"
+            variant="outlined"
+            @update:modelValue="onChange(index)"
+          />
+
+          <v-text-field
+            v-model="fields[index][2].value"
+            variant="outlined"
+            maxLength="100"
+            class="w-100"
+          />
+
+          <v-text-field
+            v-model="fields[index][3].value"
+            type="password"
+            variant="outlined"
+            maxLength="100"
+            append-inner-icon="mdi-eye-off-outline"
+          />
+
+          <button class="form__btn-delete" @click.prevent="onDelete(index)">
+            <v-icon icon="mdi-trash-can-outline"></v-icon>
+          </button>
+        </template>
+      </v-form>
     </div>
   </div>
 </template>
