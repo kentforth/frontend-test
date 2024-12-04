@@ -17,6 +17,8 @@ const password = ref(null)
 
 const accountStore = useAccountStore()
 
+accountStore.setInitialAccounts()
+
 const updateSelect = (index: number) => {
   accountStore.updateAccountType(index)
   validateForm()

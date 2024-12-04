@@ -7,11 +7,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    MarginRight: typeof import('./components/UiInput/margin-right.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     UiForm: typeof import('./components/UiForm/UiForm.vue')['default']
-    UiInput: typeof import('./components/UiInput/UiInput.vue')['default']
-    UiSelect: typeof import('./components/UiSelect/UiSelect.vue')['default']
   }
 }

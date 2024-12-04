@@ -14,6 +14,27 @@ export const useAccountStore = defineStore('counter', () => {
   const accounts = ref([])
   let savedAccounts = []
 
+  const setInitialAccounts = () => {
+    const items = JSON.parse(localStorage.getItem('accounts'))
+
+    if (items) {
+      accounts.value = items.map((el) => {
+        el[0] = {
+          id: 'marks',
+          value:
+            el[0].text === null
+              ? null
+              : el[0]
+                  .map((el) => el.text)
+                  .join('; ')
+                  .replace(/\s/g, '')
+        }
+
+        return el
+      })
+    }
+  }
+
   const addAccount = () => {
     const elements = [
       [
@@ -96,6 +117,7 @@ export const useAccountStore = defineStore('counter', () => {
     addAccount,
     saveAccounts,
     deleteAccount,
-    updateAccountType
+    updateAccountType,
+    setInitialAccounts
   }
 })
