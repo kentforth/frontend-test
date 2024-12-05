@@ -8,6 +8,5 @@ export default {
 
 <template>
   <div class="home">
-    <UiForm />
   </div>
 </template>
