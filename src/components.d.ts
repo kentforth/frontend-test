@@ -7,7 +7,12 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ButtonSwitcher: typeof import('./components/ButtonSwitcher/ButtonSwitcher.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Sidebar: typeof import('./components/Sidebar/Sidebar.vue')['default']
+    UiSearch: typeof import('./components/UiSearch/UiSearch.vue')['default']
+    UserList: typeof import('./components/UserList/UserList.vue')['default']
+    UserListItem: typeof import('./components/UserListItem/UserListItem.vue')['default']
   }
 }

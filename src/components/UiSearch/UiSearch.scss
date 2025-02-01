@@ -1,0 +1,28 @@
+.ui-search {
+  width: 100%;
+  background: $white;
+  height: 40px;
+  border-radius: 4px;
+  display: grid;
+  padding: 8px;
+  grid-template-columns: 1fr 20px;
+  grid-gap: 10px;
+  align-items: center;
+  box-shadow:
+          rgba(14, 30, 37, 0.12) 0 2px 4px 0,
+          rgba(14, 30, 37, 0.32) 0 2px 16px 0;
+
+  &__input {
+    height: 100%;
+    font-size: 16px;
+
+    &::placeholder {
+      color: $greylight;
+    }
+  }
+
+  img {
+    filter: invert(0%) sepia(69%) saturate(7485%) hue-rotate(225deg) brightness(0) contrast(100%);
+  }
+
+}

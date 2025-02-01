@@ -19,6 +19,7 @@ body {
   margin: 0 !important;
   padding: 0 !important;
   font-family: 'Roboto', sans-serif;
+  background: $greylight;
 }
 
 h1,
@@ -38,6 +39,11 @@ ul {
 a {
   text-decoration: none;
   cursor: pointer;
+}
+
+input {
+  border: none;
+  outline: none;
 }
 
 button {
