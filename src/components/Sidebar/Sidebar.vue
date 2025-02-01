@@ -1,8 +1,14 @@
 <script setup lang="ts">
+import UiSearch from "@/components/UiSearch/UiSearch.vue"
+
 const activeTab = ref("Clients")
 
 const setActiveTab = (tab: string) => {
   activeTab.value = tab
+}
+
+const searchUser = (event: string) => {
+  console.log(event)
 }
 </script>
 
@@ -13,6 +19,11 @@ const setActiveTab = (tab: string) => {
         text-left="Clients"
         text-right="Rating"
         @click="setActiveTab"
+      />
+
+      <UiSearch
+        class="sidebar__search"
+        @search="searchUser"
       />
     </div>
   </div>
@@ -30,6 +41,10 @@ const setActiveTab = (tab: string) => {
   &__header {
     background: $lightblue;
     padding: 16px;
+  }
+
+  &__search {
+    margin-top: 20px;
   }
 }
 </style>
