@@ -1,5 +1,15 @@
 <script setup lang="ts">
 import UiSearch from "@/components/UiSearch/UiSearch.vue"
+import type { IUser } from "@/types"
+
+defineEmits(["get-user"])
+
+interface IProps {
+  users: Array<IUser>
+  activeUserId: number | null
+}
+
+const { users = [] } = defineProps<IProps>()
 
 const activeTab = ref("Clients")
 
@@ -26,6 +36,12 @@ const searchUser = (event: string) => {
         @search="searchUser"
       />
     </div>
+
+    <UserList
+      :users="users"
+      :active-user-id="activeUserId"
+      @get-user="$emit('get-user', $event)"
+    />
   </div>
 </template>
 
