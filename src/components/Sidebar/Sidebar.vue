@@ -37,14 +37,17 @@ const searchUser = (event: string) => {
       />
     </div>
 
-    <div class="sidebar__body">
-      <p v-if="error">{{ error }}</p>
+    <p
+      v-if="error"
+      class="sidebar__error"
+    >
+      {{ error }}
+    </p>
 
-      <UserList
-        :users="users"
-        @get-user="$emit('get-user', $event)"
-      />
-    </div>
+    <UserList
+      :users="users"
+      @get-user="$emit('get-user', $event)"
+    />
   </div>
 </template>
 
@@ -57,12 +60,15 @@ const searchUser = (event: string) => {
     rgba(14, 30, 37, 0.12) 0 0 4px 0,
     rgba(14, 30, 37, 0.32) 0 0 16px 0;
 
-  &__header {
-    background: $lightblue;
+  &__error {
     padding: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: $error;
   }
 
-  &__body {
+  &__header {
+    background: $lightblue;
     padding: 16px;
   }
 
