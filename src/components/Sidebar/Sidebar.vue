@@ -6,9 +6,10 @@ defineEmits(["get-user"])
 
 interface IProps {
   users: Array<IUser>
+  error: string | unknown | null
 }
 
-const { users = [] } = defineProps<IProps>()
+const { users = [], error = "" } = defineProps<IProps>()
 
 const activeTab = ref("Clients")
 
@@ -36,10 +37,14 @@ const searchUser = (event: string) => {
       />
     </div>
 
-    <UserList
-      :users="users"
-      @get-user="$emit('get-user', $event)"
-    />
+    <div class="sidebar__body">
+      <p v-if="error">{{ error }}</p>
+
+      <UserList
+        :users="users"
+        @get-user="$emit('get-user', $event)"
+      />
+    </div>
   </div>
 </template>
 
@@ -54,6 +59,10 @@ const searchUser = (event: string) => {
 
   &__header {
     background: $lightblue;
+    padding: 16px;
+  }
+
+  &__body {
     padding: 16px;
   }
 
