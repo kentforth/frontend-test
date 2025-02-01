@@ -2,14 +2,22 @@
 import UserListItem from "@/components/UserListItem/UserListItem.vue"
 import type { IUser } from "@/types"
 
-defineEmits(["get-user"])
+const emit = defineEmits(["get-user"])
 
 interface IProps {
   users: Array<IUser>
-  activeUserId: number | null
 }
 
-const { users = [], activeUserId = null } = defineProps<IProps>()
+const { users = [] } = defineProps<IProps>()
+
+const activeUserId = ref<number | null>(null)
+
+const getUser = (user: IUser) => {
+  if (activeUserId.value === user.id) return
+
+  activeUserId.value = user.id
+  emit("get-user", user)
+}
 </script>
 
 <template>
@@ -19,7 +27,7 @@ const { users = [], activeUserId = null } = defineProps<IProps>()
       :key="user.id as number"
       :user="user"
       :active-user-id="activeUserId"
-      @click="$emit('get-user', user)"
+      @click="getUser(user)"
     />
   </div>
 </template>

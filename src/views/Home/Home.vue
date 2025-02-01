@@ -8,8 +8,7 @@ export default {
 import Sidebar from "@/components/Sidebar/Sidebar.vue"
 import type { IUser } from "@/types"
 
-const activeUser = ref()
-const activeUserId = ref<number | null>(null)
+const activeUser = ref<IUser | null>(null)
 const users = ref([
   {
     id: 0,
@@ -31,10 +30,7 @@ const users = ref([
 
 const getUser = (user: IUser) => {
   console.log("USER ID", user.id)
-  if (activeUserId.value === user.id) return
-
   activeUser.value = user
-  activeUserId.value = user.id
 }
 </script>
 
@@ -42,7 +38,6 @@ const getUser = (user: IUser) => {
   <div class="home">
     <Sidebar
       :users="users"
-      :active-user-id="activeUserId"
       @get-user="getUser"
     />
     <div>sdfas</div>

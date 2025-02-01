@@ -6,7 +6,6 @@ defineEmits(["get-user"])
 
 interface IProps {
   users: Array<IUser>
-  activeUserId: number | null
 }
 
 const { users = [] } = defineProps<IProps>()
@@ -39,7 +38,6 @@ const searchUser = (event: string) => {
 
     <UserList
       :users="users"
-      :active-user-id="activeUserId"
       @get-user="$emit('get-user', $event)"
     />
   </div>
