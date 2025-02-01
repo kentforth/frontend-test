@@ -1,14 +1,26 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const activeTab = ref("Clients")
+
+const setActiveTab = (tab: string) => {
+  activeTab.value = tab
+}
+</script>
 
 <template>
   <div class="sidebar">
-    <div class="sidebar__header">sdfsdf</div>
+    <div class="sidebar__header">
+      <ButtonSwitcher
+        text-left="Clients"
+        text-right="Rating"
+        @click="setActiveTab"
+      />
+    </div>
   </div>
 </template>
 
 <style scoped lang="scss">
 .sidebar {
-  width: max-content;
+  max-width: 300px;
   height: 100svh;
   background: $white;
   box-shadow:
