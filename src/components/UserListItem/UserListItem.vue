@@ -11,7 +11,9 @@ interface IProps {
 const {
   user = {
     id: null,
-    name: "",
+    first_name: null,
+    last_name: null,
+    email: null,
     avatar: "",
     alt: "",
   },
@@ -35,11 +37,11 @@ const onClick = () => {
     <div class="user-list-item__user">
       <div class="user-list-item__image">
         <img
-          src="https://images.generated.photos/VEFNRr8_f-ZbZSGTxh5Cf8VLGOb1b2ts9UoF-Rlzeh4/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/OTI0MDk2LmpwZw.jpg"
+          :src="user.avatar"
           alt="user"
         />
       </div>
-      <p>{{ user.name }}</p>
+      <p>{{ user.first_name }} {{ user.last_name }}</p>
     </div>
 
     <img

@@ -32,4 +32,9 @@ const getUser = (user: IUser) => {
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.user-list {
+  display: flex;
+  flex-direction: column;
+}
+</style>
