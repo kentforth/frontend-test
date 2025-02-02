@@ -32,10 +32,8 @@ const getUser = async (user: IUser) => {
 }
 
 const saveUser = (_user: IUser) => {
-  console.log("PARAM USER", _user)
-
   const user = {
-    id: _user.id,
+    userId: _user.id,
     rating: _user.rating,
     comment: _user.comment,
   }
@@ -45,12 +43,13 @@ const saveUser = (_user: IUser) => {
   const localUsers = JSON.parse(localStorage.getItem("users") as string)
 
   if (localUsers) {
-    const foundedUser = localUsers.find((user) => user.id === _user.id)
+    const foundedUser = localUsers.find((user) => user.userId === _user.id)
 
     if (foundedUser) {
-      console.log("User founded", foundedUser)
-      console.log("LOCAL USERS", localUsers)
-      const index = localUsers.findIndex((user) => user.id === foundedUser.id)
+      const index = localUsers.findIndex(
+        (user) => user.userId === foundedUser.userId,
+      )
+
       localUsers[index] = { ...user }
       localStorage.setItem("users", JSON.stringify(localUsers))
 
@@ -59,6 +58,7 @@ const saveUser = (_user: IUser) => {
 
     localUsers.push(user)
     localStorage.setItem("users", JSON.stringify(localUsers))
+
     return
   }
 
