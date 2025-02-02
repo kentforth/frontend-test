@@ -14,7 +14,7 @@ const usersUrl = "https://reqres.in/api/users"
 
 const activeUser = ref<IUser | null | unknown | {}>(null)
 const apiError = ref<string | unknown>("")
-const users = ref([])
+const users = ref<IUser[] | []>([])
 const isRatingTab = ref(false)
 
 const activeUserId = computed(() => {
@@ -118,6 +118,16 @@ const saveUser = (_user: IUser) => {
 const setActiveTab = (tab: string) => {
   isRatingTab.value = tab === "Rating"
   activeUser.value = null
+
+  if (tab === "Rating") {
+    users.value = users.value.sort(
+      (a, b) => (b.rating as number) - (a.rating as number),
+    )
+
+    return
+  }
+
+  users.value = users.value.sort()
 }
 </script>
 
