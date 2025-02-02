@@ -21,11 +21,10 @@ const props = withDefaults(defineProps<IProps>(), {
   },
 })
 
-const comment = ref()
-const rating = ref()
+const comment = ref("")
+const rating = ref<number | undefined>(0)
 
 const decreasePoints = () => {
-  console.log("USS", rating.value)
   if (rating.value === 0) return
 
   rating.value = (rating.value as number) - 1
@@ -42,16 +41,14 @@ const saveUser = () => {
     rating: rating.value,
   }
 
-  console.log("USERsss", user)
   emit("save-user", user)
 }
 
 watch(
-  props.user,
+  props,
   () => {
     comment.value = props.user.comment
     rating.value = props.user.rating
-    console.log("RATING", rating.value)
   },
   { deep: true, immediate: true },
 )

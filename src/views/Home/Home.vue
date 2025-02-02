@@ -49,10 +49,8 @@ const getUser = async (user: IUser) => {
   const foundUser = findUser(user)
 
   if (foundUser) {
-    console.log("FOUND USER", foundUser)
     activeUser.value.comment = foundUser.comment
     activeUser.value.rating = foundUser.rating
-    console.log("ACTIVE USER", activeUser.value)
     return
   }
 
