@@ -26,8 +26,45 @@ const getUser = async (user: IUser) => {
   const { data, error } = await useFetch(
     `https://reqres.in/api/users/${user.id}`,
   )
+
   apiError.value = error.value
   activeUser.value = data.value.data
+}
+
+const saveUser = (_user: IUser) => {
+  console.log("PARAM USER", _user)
+
+  const user = {
+    id: _user.id,
+    rating: _user.rating,
+    comment: _user.comment,
+  }
+
+  const users: unknown[] = []
+
+  const localUsers = JSON.parse(localStorage.getItem("users") as string)
+
+  if (localUsers) {
+    const foundedUser = localUsers.find((user) => user.id === _user.id)
+
+    if (foundedUser) {
+      console.log("User founded", foundedUser)
+      console.log("LOCAL USERS", localUsers)
+      const index = localUsers.findIndex((user) => user.id === foundedUser.id)
+      localUsers[index] = { ...user }
+      localStorage.setItem("users", JSON.stringify(localUsers))
+
+      return
+    }
+
+    localUsers.push(user)
+    localStorage.setItem("users", JSON.stringify(localUsers))
+    return
+  }
+
+  users.push(user)
+
+  localStorage.setItem("users", JSON.stringify(users))
 }
 </script>
 
@@ -43,6 +80,7 @@ const getUser = async (user: IUser) => {
       <UserInfo
         v-if="activeUser"
         :user="activeUser as IUser"
+        @save-user="saveUser"
       />
       <p
         class="home__select"
