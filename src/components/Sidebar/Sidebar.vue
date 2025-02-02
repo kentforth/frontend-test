@@ -8,13 +8,15 @@ const emit = defineEmits(["get-user", "set-active-tab"])
 interface IProps {
   users: Array<IUser>
   error: string | unknown | null
-  isRatingVisible: boolean
+  isRatingTab: boolean
+  activeUserId: number | null
 }
 
 const {
   users = [],
   error = "",
-  isRatingVisible = false,
+  isRatingTab = false,
+  activeUserId = null,
 } = defineProps<IProps>()
 
 const setActiveTab = (tab: string) => {
@@ -60,7 +62,8 @@ const searchUser = (event: string) => {
 
       <UserList
         :users="users"
-        :is-rating-visible="isRatingVisible"
+        :active-user-id="activeUserId"
+        :is-rating-tab="isRatingTab"
         @get-user="$emit('get-user', $event)"
       />
     </Suspense>

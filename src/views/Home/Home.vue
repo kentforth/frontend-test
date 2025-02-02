@@ -15,7 +15,15 @@ const usersUrl = "https://reqres.in/api/users"
 const activeUser = ref<IUser | null | unknown | {}>(null)
 const apiError = ref<string | unknown>("")
 const users = ref([])
-const isRatingVisible = ref(false)
+const isRatingTab = ref(false)
+
+const activeUserId = computed(() => {
+  if (activeUser.value) {
+    return (activeUser.value as IUser).id
+  }
+
+  return null
+})
 
 onBeforeMount(async () => {
   const { data, error } = await useFetch(usersUrl)
@@ -39,8 +47,6 @@ onBeforeMount(async () => {
       }
     })
   }
-
-  console.log("USERS", users.value)
 })
 
 const getUser = async (user: IUser) => {
@@ -110,7 +116,8 @@ const saveUser = (_user: IUser) => {
 }
 
 const setActiveTab = (tab: string) => {
-  isRatingVisible.value = tab === "Rating"
+  isRatingTab.value = tab === "Rating"
+  activeUser.value = null
 }
 </script>
 
@@ -119,7 +126,8 @@ const setActiveTab = (tab: string) => {
     <Sidebar
       :users="users"
       :error="apiError"
-      :is-rating-visible="isRatingVisible"
+      :active-user-id="activeUserId"
+      :is-rating-tab="isRatingTab"
       @get-user="getUser"
       @set-active-tab="setActiveTab"
     />
