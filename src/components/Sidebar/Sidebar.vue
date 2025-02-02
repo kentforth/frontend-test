@@ -3,7 +3,7 @@ import UiSearch from "@/components/UiSearch/UiSearch.vue"
 import type { IUser } from "@/types"
 import loader from "@/assets/loader.gif"
 
-const emit = defineEmits(["get-user", "set-active-tab"])
+const emit = defineEmits(["get-user", "set-active-tab", "search-user"])
 
 interface IProps {
   users: Array<IUser>
@@ -23,8 +23,8 @@ const setActiveTab = (tab: string) => {
   emit("set-active-tab", tab)
 }
 
-const searchUser = (event: string) => {
-  console.log(event)
+const searchUser = (user: string) => {
+  emit("search-user", user)
 }
 </script>
 

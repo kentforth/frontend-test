@@ -155,6 +155,10 @@ const sortUsers = () => {
     return 0
   })
 }
+
+const searchUser = (user: string) => {
+  console.log("search user", user)
+}
 </script>
 
 <template>
@@ -166,6 +170,7 @@ const sortUsers = () => {
       :is-rating-tab="isRatingTab"
       @get-user="getUser"
       @set-active-tab="setActiveTab"
+      @search-user="searchUser"
     />
 
     <div class="home__content">
