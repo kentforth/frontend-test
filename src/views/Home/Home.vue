@@ -32,6 +32,8 @@ onBeforeMount(async () => {
   apiError.value = error.value
   users.value = data.value.data
 
+  sortUsers()
+
   users.value.forEach((user: IUser) => {
     user.rating = 0
   })
@@ -145,7 +147,13 @@ const sortUsers = () => {
     return
   }
 
-  users.value = users.value.sort()
+  users.value = users.value.sort((a, b) => {
+    if (a.last_name.toLowerCase() < b.last_name.toLowerCase()) {
+      return -1
+    }
+
+    return 0
+  })
 }
 </script>
 
