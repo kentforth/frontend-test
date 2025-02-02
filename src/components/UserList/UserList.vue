@@ -6,9 +6,10 @@ const emit = defineEmits(["get-user"])
 
 interface IProps {
   users: Array<IUser>
+  isRatingVisible: boolean
 }
 
-const { users = [] } = defineProps<IProps>()
+const { users = [], isRatingVisible = false } = defineProps<IProps>()
 
 const activeUserId = ref<number | null>(null)
 
@@ -27,6 +28,7 @@ const getUser = (user: IUser) => {
       :key="user.id as number"
       :user="user"
       :active-user-id="activeUserId"
+      :is-rating-visible="isRatingVisible"
       @click="getUser(user)"
     />
   </div>

@@ -6,6 +6,7 @@ const emit = defineEmits(["click"])
 interface IProps {
   user: IUser
   activeUserId: number | null
+  isRatingVisible: boolean
 }
 
 const {
@@ -16,7 +17,9 @@ const {
     email: null,
     avatar: "",
     alt: "",
+    rating: 0,
   },
+  isRatingVisible = false,
   activeUserId = null,
 } = defineProps<IProps>()
 
@@ -36,7 +39,14 @@ const onClick = () => {
   >
     <div class="user-list-item__user">
       <div class="user-list-item__image">
+        <div
+          v-if="isRatingVisible"
+          class="user-list-item__rating"
+        >
+          {{ user.rating }}
+        </div>
         <img
+          v-else
           :src="user.avatar"
           alt="user"
         />

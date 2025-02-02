@@ -10,9 +10,9 @@ const { textLeft = null, textRight = null } = defineProps<IProps>()
 
 const activeButton = ref(textLeft)
 
-const setActiveButton = (active: string | null) => {
-  activeButton.value = active
-  emit("click")
+const setActiveButton = (tab: string | null) => {
+  activeButton.value = tab
+  emit("click", tab)
 }
 </script>
 

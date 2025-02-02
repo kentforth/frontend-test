@@ -3,19 +3,22 @@ import UiSearch from "@/components/UiSearch/UiSearch.vue"
 import type { IUser } from "@/types"
 import loader from "@/assets/loader.gif"
 
-defineEmits(["get-user"])
+const emit = defineEmits(["get-user", "set-active-tab"])
 
 interface IProps {
   users: Array<IUser>
   error: string | unknown | null
+  isRatingVisible: boolean
 }
 
-const { users = [], error = "" } = defineProps<IProps>()
-
-const activeTab = ref("Clients")
+const {
+  users = [],
+  error = "",
+  isRatingVisible = false,
+} = defineProps<IProps>()
 
 const setActiveTab = (tab: string) => {
-  activeTab.value = tab
+  emit("set-active-tab", tab)
 }
 
 const searchUser = (event: string) => {
@@ -57,6 +60,7 @@ const searchUser = (event: string) => {
 
       <UserList
         :users="users"
+        :is-rating-visible="isRatingVisible"
         @get-user="$emit('get-user', $event)"
       />
     </Suspense>

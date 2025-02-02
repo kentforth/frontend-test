@@ -15,12 +15,17 @@ const usersUrl = "https://reqres.in/api/users"
 const activeUser = ref<IUser | null | unknown | {}>(null)
 const apiError = ref<string | unknown>("")
 const users = ref([])
+const isRatingVisible = ref(false)
 
 onBeforeMount(async () => {
   const { data, error } = await useFetch(usersUrl)
 
   apiError.value = error.value
   users.value = data.value.data
+
+  users.value.forEach((user: IUser) => {
+    user.rating = 0
+  })
 
   const localUsers = JSON.parse(localStorage.getItem("users") as string)
 
@@ -33,9 +38,9 @@ onBeforeMount(async () => {
         user.rating = foundUser.rating
       }
     })
-
-    console.log("USRRR", users.value)
   }
+
+  console.log("USERS", users.value)
 })
 
 const getUser = async (user: IUser) => {
@@ -49,12 +54,16 @@ const getUser = async (user: IUser) => {
   const foundUser = findUser(user)
 
   if (foundUser) {
+    // @ts-ignore
     activeUser.value.comment = foundUser.comment
+    // @ts-ignore
     activeUser.value.rating = foundUser.rating
     return
   }
 
+  // @ts-ignore
   activeUser.value.comment = ""
+  // @ts-ignore
   activeUser.value.rating = 0
 }
 
@@ -99,6 +108,10 @@ const saveUser = (_user: IUser) => {
 
   localStorage.setItem("users", JSON.stringify(users))
 }
+
+const setActiveTab = (tab: string) => {
+  isRatingVisible.value = tab === "Rating"
+}
 </script>
 
 <template>
@@ -106,7 +119,9 @@ const saveUser = (_user: IUser) => {
     <Sidebar
       :users="users"
       :error="apiError"
+      :is-rating-visible="isRatingVisible"
       @get-user="getUser"
+      @set-active-tab="setActiveTab"
     />
 
     <div class="home__content">
