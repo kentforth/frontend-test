@@ -6,4 +6,5 @@ export interface IUser {
   avatar: string
   alt?: string
   rating?: number
+  comment: string
 }

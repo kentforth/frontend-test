@@ -56,3 +56,13 @@ button {
   justify-content: center;
   border: none;
 }
+
+textarea {
+  outline: none;
+  border: 1px solid $grey;
+  border-radius: 6px;
+  resize: none;
+  padding: 8px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
