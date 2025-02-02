@@ -17,29 +17,44 @@ const props = withDefaults(defineProps<IProps>(), {
     email: null,
     avatar: "",
     rating: 0,
+    comment: null,
   },
 })
 
-const comment = defineModel<string>()
-
-const points = ref(0)
+const comment = ref()
+const rating = ref()
 
 const decreasePoints = () => {
-  if (points.value === 0) return
+  console.log("USS", rating.value)
+  if (rating.value === 0) return
 
-  points.value = points.value - 1
+  rating.value = (rating.value as number) - 1
+}
+
+const increasePoints = () => {
+  rating.value = (rating.value as number) + 1
 }
 
 const saveUser = () => {
   const user = {
     ...props.user,
     comment: comment.value,
-    rating: points.value,
+    rating: rating.value,
   }
 
-  comment.value = ""
+  console.log("USERsss", user)
   emit("save-user", user)
 }
+
+watch(
+  props.user,
+  () => {
+    comment.value = props.user.comment
+    rating.value = props.user.rating
+    console.log("RATING", rating.value)
+  },
+  { deep: true, immediate: true },
+)
 </script>
 
 <template>
@@ -56,14 +71,15 @@ const saveUser = () => {
         <h2>{{ user.first_name }} {{ user.last_name }}</h2>
         <p class="user-info__email">{{ user.email }}</p>
         <Counter
-          :default-points="points"
+          :rating="rating"
           class="user-info__counter"
           @decrease="decreasePoints"
-          @increase="points = points + 1"
+          @increase="increasePoints"
         />
         <textarea
-          v-model="comment"
+          :value="comment"
           rows="5"
+          @input="comment = ($event.target as HTMLInputElement).value"
           class="user-info__comment"
         />
       </div>

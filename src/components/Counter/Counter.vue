@@ -2,18 +2,18 @@
 defineEmits(["decrease", "increase"])
 
 interface IProps {
-  defaultPoints: number
+  rating: number
 }
 
 withDefaults(defineProps<IProps>(), {
-  defaultPoints: 0,
+  rating: 0,
 })
 </script>
 
 <template>
   <div class="counter">
     <button @click="$emit('decrease')">-</button>
-    <span>{{ defaultPoints }} points</span>
+    <span>{{ rating }} points</span>
     <button @click="$emit('increase')">+</button>
   </div>
 </template>

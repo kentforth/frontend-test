@@ -12,14 +12,30 @@ import UserInfo from "@/components/UserInfo/UserInfo.vue"
 
 const usersUrl = "https://reqres.in/api/users"
 
-const activeUser = ref<IUser | null | unknown>(null)
+const activeUser = ref<IUser | null | unknown | {}>(null)
 const apiError = ref<string | unknown>("")
 const users = ref([])
 
 onBeforeMount(async () => {
   const { data, error } = await useFetch(usersUrl)
+
   apiError.value = error.value
   users.value = data.value.data
+
+  const localUsers = JSON.parse(localStorage.getItem("users") as string)
+
+  if (users.value && localUsers) {
+    users.value.forEach((user: IUser) => {
+      const foundUser = localUsers.find((el) => el.userId === user.id)
+
+      if (findUser(user)) {
+        user.comment = foundUser.comment
+        user.rating = foundUser.rating
+      }
+    })
+
+    console.log("USRRR", users.value)
+  }
 })
 
 const getUser = async (user: IUser) => {
@@ -29,6 +45,29 @@ const getUser = async (user: IUser) => {
 
   apiError.value = error.value
   activeUser.value = data.value.data
+
+  const foundUser = findUser(user)
+
+  if (foundUser) {
+    console.log("FOUND USER", foundUser)
+    activeUser.value.comment = foundUser.comment
+    activeUser.value.rating = foundUser.rating
+    console.log("ACTIVE USER", activeUser.value)
+    return
+  }
+
+  activeUser.value.comment = ""
+  activeUser.value.rating = 0
+}
+
+const findUser = (_user: IUser) => {
+  const localUsers = JSON.parse(localStorage.getItem("users") as string)
+
+  if (localUsers) {
+    return localUsers.find((user) => user.userId === _user.id)
+  }
+
+  return null
 }
 
 const saveUser = (_user: IUser) => {
@@ -43,12 +82,8 @@ const saveUser = (_user: IUser) => {
   const localUsers = JSON.parse(localStorage.getItem("users") as string)
 
   if (localUsers) {
-    const foundedUser = localUsers.find((user) => user.userId === _user.id)
-
-    if (foundedUser) {
-      const index = localUsers.findIndex(
-        (user) => user.userId === foundedUser.userId,
-      )
+    if (findUser(_user)) {
+      const index = localUsers.findIndex((user) => user.userId === _user.id)
 
       localUsers[index] = { ...user }
       localStorage.setItem("users", JSON.stringify(localUsers))
