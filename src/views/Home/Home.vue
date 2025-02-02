@@ -14,13 +14,27 @@ const usersUrl = "https://reqres.in/api/users"
 
 const activeUser = ref<IUser | null | unknown | {}>(null)
 const apiError = ref<string | unknown>("")
-const users = ref([])
+const users = ref<IUser[] | []>([])
+const isRatingTab = ref(false)
+const activeTab = ref("Clients")
+
+const activeUserId = computed(() => {
+  if (activeUser.value) {
+    return (activeUser.value as IUser).id
+  }
+
+  return null
+})
 
 onBeforeMount(async () => {
   const { data, error } = await useFetch(usersUrl)
 
   apiError.value = error.value
   users.value = data.value.data
+
+  users.value.forEach((user: IUser) => {
+    user.rating = 0
+  })
 
   const localUsers = JSON.parse(localStorage.getItem("users") as string)
 
@@ -33,8 +47,6 @@ onBeforeMount(async () => {
         user.rating = foundUser.rating
       }
     })
-
-    console.log("USRRR", users.value)
   }
 })
 
@@ -49,12 +61,16 @@ const getUser = async (user: IUser) => {
   const foundUser = findUser(user)
 
   if (foundUser) {
+    // @ts-ignore
     activeUser.value.comment = foundUser.comment
+    // @ts-ignore
     activeUser.value.rating = foundUser.rating
     return
   }
 
+  // @ts-ignore
   activeUser.value.comment = ""
+  // @ts-ignore
   activeUser.value.rating = 0
 }
 
@@ -75,9 +91,13 @@ const saveUser = (_user: IUser) => {
     comment: _user.comment,
   }
 
-  const users: unknown[] = []
+  const _users: unknown[] = []
 
   const localUsers = JSON.parse(localStorage.getItem("users") as string)
+
+  const originalUsersIndex = users.value.findIndex(
+    (user) => user.id === _user.id,
+  )
 
   if (localUsers) {
     if (findUser(_user)) {
@@ -86,18 +106,46 @@ const saveUser = (_user: IUser) => {
       localUsers[index] = { ...user }
       localStorage.setItem("users", JSON.stringify(localUsers))
 
+      users.value[originalUsersIndex].rating = _user.rating
+      sortUsers()
       return
     }
 
     localUsers.push(user)
     localStorage.setItem("users", JSON.stringify(localUsers))
 
+    users.value[originalUsersIndex].rating = _user.rating
+
+    sortUsers()
     return
   }
 
-  users.push(user)
+  _users.push(user)
 
-  localStorage.setItem("users", JSON.stringify(users))
+  localStorage.setItem("users", JSON.stringify(_users))
+  users.value[originalUsersIndex].rating = _user.rating
+
+  sortUsers()
+}
+
+const setActiveTab = (tab: string) => {
+  isRatingTab.value = tab === "Rating"
+  activeTab.value = tab
+  activeUser.value = null
+
+  sortUsers()
+}
+
+const sortUsers = () => {
+  if (activeTab.value === "Rating") {
+    users.value = users.value.sort(
+      (a, b) => (b.rating as number) - (a.rating as number),
+    )
+
+    return
+  }
+
+  users.value = users.value.sort()
 }
 </script>
 
@@ -106,7 +154,10 @@ const saveUser = (_user: IUser) => {
     <Sidebar
       :users="users"
       :error="apiError"
+      :active-user-id="activeUserId"
+      :is-rating-tab="isRatingTab"
       @get-user="getUser"
+      @set-active-tab="setActiveTab"
     />
 
     <div class="home__content">

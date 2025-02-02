@@ -6,16 +6,19 @@ const emit = defineEmits(["get-user"])
 
 interface IProps {
   users: Array<IUser>
+  activeUserId: number | null
+  isRatingTab: boolean
 }
 
-const { users = [] } = defineProps<IProps>()
-
-const activeUserId = ref<number | null>(null)
+const {
+  users = [],
+  isRatingTab = false,
+  activeUserId = null,
+} = defineProps<IProps>()
 
 const getUser = (user: IUser) => {
-  if (activeUserId.value === user.id) return
+  if (activeUserId === user.id) return
 
-  activeUserId.value = user.id
   emit("get-user", user)
 }
 </script>
@@ -27,6 +30,7 @@ const getUser = (user: IUser) => {
       :key="user.id as number"
       :user="user"
       :active-user-id="activeUserId"
+      :is-rating-tab="isRatingTab"
       @click="getUser(user)"
     />
   </div>

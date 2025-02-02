@@ -6,21 +6,28 @@ const emit = defineEmits(["click"])
 interface IProps {
   user: IUser
   activeUserId: number | null
+  isRatingTab: boolean
 }
 
-const {
-  user = {
+const props = withDefaults(defineProps<IProps>(), {
+  user: {
     id: null,
     first_name: null,
     last_name: null,
     email: null,
     avatar: "",
     alt: "",
+    rating: 0,
   },
-  activeUserId = null,
-} = defineProps<IProps>()
+  isRatingTab: false,
+  activeUserId: null,
+})
 
 const isMenuVisible = ref(false)
+
+const activeItem = computed(() => {
+  return props.activeUserId === props.user.id ? "user-list-item--active" : ""
+})
 
 const onClick = () => {
   emit("click")
@@ -31,12 +38,19 @@ const onClick = () => {
 <template>
   <div
     class="user-list-item"
-    :class="activeUserId === user.id ? 'user-list-item--active' : ''"
+    :class="activeItem"
     @click="onClick"
   >
     <div class="user-list-item__user">
       <div class="user-list-item__image">
+        <div
+          v-if="isRatingTab"
+          class="user-list-item__rating"
+        >
+          {{ user.rating }}
+        </div>
         <img
+          v-else
           :src="user.avatar"
           alt="user"
         />
