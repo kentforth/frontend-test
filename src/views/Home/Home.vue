@@ -16,6 +16,7 @@ const activeUser = ref<IUser | null | unknown | {}>(null)
 const apiError = ref<string | unknown>("")
 const users = ref<IUser[] | []>([])
 const isRatingTab = ref(false)
+const activeTab = ref("Clients")
 
 const activeUserId = computed(() => {
   if (activeUser.value) {
@@ -90,9 +91,13 @@ const saveUser = (_user: IUser) => {
     comment: _user.comment,
   }
 
-  const users: unknown[] = []
+  const _users: unknown[] = []
 
   const localUsers = JSON.parse(localStorage.getItem("users") as string)
+
+  const originalUsersIndex = users.value.findIndex(
+    (user) => user.id === _user.id,
+  )
 
   if (localUsers) {
     if (findUser(_user)) {
@@ -101,25 +106,38 @@ const saveUser = (_user: IUser) => {
       localUsers[index] = { ...user }
       localStorage.setItem("users", JSON.stringify(localUsers))
 
+      users.value[originalUsersIndex].rating = _user.rating
+      sortUsers()
       return
     }
 
     localUsers.push(user)
     localStorage.setItem("users", JSON.stringify(localUsers))
 
+    users.value[originalUsersIndex].rating = _user.rating
+
+    sortUsers()
     return
   }
 
-  users.push(user)
+  _users.push(user)
 
-  localStorage.setItem("users", JSON.stringify(users))
+  localStorage.setItem("users", JSON.stringify(_users))
+  users.value[originalUsersIndex].rating = _user.rating
+
+  sortUsers()
 }
 
 const setActiveTab = (tab: string) => {
   isRatingTab.value = tab === "Rating"
+  activeTab.value = tab
   activeUser.value = null
 
-  if (tab === "Rating") {
+  sortUsers()
+}
+
+const sortUsers = () => {
+  if (activeTab.value === "Rating") {
     users.value = users.value.sort(
       (a, b) => (b.rating as number) - (a.rating as number),
     )
