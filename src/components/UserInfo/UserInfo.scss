@@ -31,9 +31,20 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    text-align: center;
   }
 
   &__email {
     margin-bottom: 16px;
+  }
+  
+  @media (min-width: 700px) {
+    &__content {
+      grid-template-columns: max-content 1fr;
+    }
+    
+    &__info {
+      text-align: left;
+    }
   }
 }
