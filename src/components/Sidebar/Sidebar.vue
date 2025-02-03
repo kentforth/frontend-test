@@ -82,9 +82,13 @@ const searchUser = (user: string) => {
       />
 
       <div class="sidebar__footer">
-        <div class="sidebar__footer-user-info"></div>
+        <div
+          class="sidebar__footer-user-info"
+          :class="activeUserId ? 'sidebar__footer-user-info--active' : ''"
+        ></div>
         <UiButton
           title="Update list"
+          class="sidebar__btn-footer"
           @click="$emit('update-users')"
         />
       </div>

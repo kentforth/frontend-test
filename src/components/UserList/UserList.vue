@@ -24,7 +24,10 @@ const getUser = (user: IUser) => {
 </script>
 
 <template>
-  <div class="user-list">
+  <div
+    class="user-list"
+    :class="activeUserId ? 'user-list--folded' : ''"
+  >
     <UserListItem
       v-for="user in users"
       :key="user.id as number"
@@ -40,5 +43,15 @@ const getUser = (user: IUser) => {
 .user-list {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  overflow-y: scroll;
+
+  &--folded {
+    height: 60%;
+  }
+
+  @media (min-width: 601px) {
+    overflow-y: inherit;
+  }
 }
 </style>
