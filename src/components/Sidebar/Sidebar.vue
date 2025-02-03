@@ -15,6 +15,7 @@ interface IProps {
   error: string | unknown | null
   isRatingTab: boolean
   activeUserId: number | null
+  activeUser: IUser | null | unknown | {}
 }
 
 const {
@@ -22,6 +23,7 @@ const {
   error = "",
   isRatingTab = false,
   activeUserId = null,
+  activeUser = null,
 } = defineProps<IProps>()
 
 const isContentVisible = ref(true)
@@ -83,9 +85,12 @@ const searchUser = (user: string) => {
 
       <div class="sidebar__footer">
         <div
+          v-if="activeUser"
           class="sidebar__footer-user-info"
           :class="activeUserId ? 'sidebar__footer-user-info--active' : ''"
-        ></div>
+        >
+          <UserInfo :user="activeUser as IUser" />
+        </div>
         <UiButton
           title="Update list"
           class="sidebar__btn-footer"
