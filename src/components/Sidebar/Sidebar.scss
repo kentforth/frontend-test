@@ -72,7 +72,12 @@
   }
 
   &__footer {
+    margin-top: auto;
+    height: max-content;
     padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
   &__footer-user-info {

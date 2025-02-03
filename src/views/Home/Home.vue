@@ -209,6 +209,7 @@ const updateUsers = async () => {
       :is-rating-tab="isRatingTab"
       :active-user="activeUser as IUser"
       @get-user="getUser"
+      @save-user="saveUser"
       @set-active-tab="setActiveTab"
       @search-user="searchUser"
       @update-users="updateUsers"

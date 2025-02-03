@@ -1,20 +1,20 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from "vue-router"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: "/",
       meta: {
-        title: 'Главная'
+        title: "Главная",
       },
-      name: 'home',
-      component: () => import('../views/Home/Home.vue')
-    }
-  ]
+      name: "home",
+      component: () => import("../views/Home/Home.vue"),
+    },
+  ],
 })
 
-router.afterEach((to: any, from, next) => {
+router.afterEach((to: any) => {
   document.title = to.meta.title
 })
 
