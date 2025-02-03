@@ -10,9 +10,9 @@ defineProps({
   isLoading: Boolean,
 })
 
-const searchUser = () => {
+const searchUser = useDebounce(() => {
   emit("search", model.value)
-}
+}, 200)
 </script>
 
 <template>
