@@ -8,6 +8,7 @@ const emit = defineEmits([
   "set-active-tab",
   "search-user",
   "update-users",
+  "save-user",
 ])
 
 interface IProps {
@@ -89,7 +90,10 @@ const searchUser = (user: string) => {
           class="sidebar__footer-user-info"
           :class="activeUserId ? 'sidebar__footer-user-info--active' : ''"
         >
-          <UserInfo :user="activeUser as IUser" />
+          <UserInfo
+            :user="activeUser as IUser"
+            @save-user="$emit('save-user', $event)"
+          />
         </div>
         <UiButton
           title="Update list"
