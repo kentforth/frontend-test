@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import search from "@/assets/icons/search.svg"
+import { useDebounce } from "@/composables/shared"
 
 const emit = defineEmits(["search"])
 
 const model = defineModel()
+
+defineProps({
+  isLoading: Boolean,
+})
 
 const searchUser = () => {
   emit("search", model.value)
