@@ -21,12 +21,6 @@
     }
   }
 
-  &__loader {
-    width: 24px;
-    height: 24px;
-    transform: translateX(-4px);
-  }
-
   img {
     filter: invert(0%) sepia(69%) saturate(7485%) hue-rotate(225deg) brightness(0) contrast(100%);
   }
