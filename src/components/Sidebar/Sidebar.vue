@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import UiSearch from "@/components/UiSearch/UiSearch.vue"
 import type { IUser } from "@/types"
-import loader from "@/assets/loader.gif"
 
-const emit = defineEmits(["get-user", "set-active-tab", "search-user"])
+const emit = defineEmits([
+  "get-user",
+  "set-active-tab",
+  "search-user",
+  "update-users",
+])
 
 interface IProps {
   users: Array<IUser>
@@ -50,23 +54,20 @@ const searchUser = (user: string) => {
       {{ error }}
     </p>
 
-    <Suspense>
-      <template #fallback>
-        <div class="sidebar__loader">
-          <img
-            :src="loader"
-            alt="loader"
-          />
-        </div>
-      </template>
+    <UserList
+      :users="users"
+      :active-user-id="activeUserId"
+      :is-rating-tab="isRatingTab"
+      @get-user="$emit('get-user', $event)"
+    />
 
-      <UserList
-        :users="users"
-        :active-user-id="activeUserId"
-        :is-rating-tab="isRatingTab"
-        @get-user="$emit('get-user', $event)"
+    <div class="sidebar__footer">
+      <div></div>
+      <UiButton
+        title="Update list"
+        @click="$emit('update-users')"
       />
-    </Suspense>
+    </div>
   </div>
 </template>
 

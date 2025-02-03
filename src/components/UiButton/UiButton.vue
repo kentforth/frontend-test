@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import loader from "@/assets/loader.gif"
-
 defineEmits(["click"])
 
 interface IProps {
@@ -19,14 +17,7 @@ withDefaults(defineProps<IProps>(), {
     class="ui-button"
     @click="$emit('click')"
   >
-    <img
-      v-if="isLoading"
-      :src="loader"
-      alt="loader"
-      class="ui-button__loader"
-    />
-
-    <span v-else>{{ title }}</span>
+    <span>{{ title }}</span>
   </div>
 </template>
 
@@ -41,11 +32,5 @@ withDefaults(defineProps<IProps>(), {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-
-  &__loader {
-    width: 30px;
-    height: 30px;
-    color: $white;
-  }
 }
 </style>

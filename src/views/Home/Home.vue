@@ -192,6 +192,10 @@ const searchUser = async (user: string) => {
 
   sortUsers()
 }
+
+const updateUsers = async () => {
+  await fetchDefaultUsers()
+}
 </script>
 
 <template>
@@ -204,6 +208,7 @@ const searchUser = async (user: string) => {
       @get-user="getUser"
       @set-active-tab="setActiveTab"
       @search-user="searchUser"
+      @update-users="updateUsers"
     />
 
     <div class="home__content">
