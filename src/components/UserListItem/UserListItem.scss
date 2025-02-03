@@ -47,12 +47,6 @@
     font-weight: bold;
   }
 
-  &__icon {
-    &--active {
-      transform: rotate(270deg);
-    }
-  }
-
   &__line {
     background: red;
     width: 100%;

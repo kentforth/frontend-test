@@ -62,7 +62,6 @@ const onClick = () => {
       :src="arrow"
       alt="arrow"
       class="user-list-item__icon"
-      :class="isMenuVisible ? 'user-list-item__icon--active' : ''"
     />
   </div>
 </template>
