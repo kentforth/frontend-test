@@ -163,6 +163,8 @@ const sortUsers = () => {
 }
 
 const searchUser = async (user: string) => {
+  activeUser.value = null
+
   const fullName = user.toLowerCase().split(" ")
 
   const foundUsers: any = []
@@ -233,9 +235,9 @@ const updateUsers = async () => {
   align-items: center;
 
   &__content {
+    display: none;
     padding: 0 16px;
     width: 100%;
-    display: flex;
     justify-content: center;
     align-items: center;
   }
@@ -243,6 +245,12 @@ const updateUsers = async () => {
   &__select {
     font-weight: bold;
     font-size: 24px;
+  }
+
+  @media (min-width: 601px) {
+    &__content {
+      display: flex;
+    }
   }
 }
 </style>
