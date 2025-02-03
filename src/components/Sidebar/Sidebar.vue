@@ -24,7 +24,7 @@ const {
   activeUserId = null,
 } = defineProps<IProps>()
 
-const isContentVisible = ref(false)
+const isContentVisible = ref(true)
 
 const setActiveTab = (tab: string) => {
   emit("set-active-tab", tab)
@@ -36,7 +36,10 @@ const searchUser = (user: string) => {
 </script>
 
 <template>
-  <div class="sidebar">
+  <div
+    class="sidebar"
+    :class="!isContentVisible ? 'sidebar--folded' : ''"
+  >
     <button
       class="sidebar__btn-fold"
       :class="!isContentVisible ? 'sidebar__btn-fold--folded' : ''"
