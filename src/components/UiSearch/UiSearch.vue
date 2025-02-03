@@ -14,7 +14,7 @@ const searchUser = () => {
   <div class="ui-search">
     <input
       type="text"
-      v-model="model"
+      v-model.trim="model"
       placeholder="Enter username to search"
       class="ui-search__input"
       @input="searchUser"

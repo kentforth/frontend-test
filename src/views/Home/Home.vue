@@ -27,11 +27,19 @@ const activeUserId = computed(() => {
 })
 
 onBeforeMount(async () => {
+  await fetchDefaultUsers()
+})
+
+const fetchDefaultUsers = async () => {
   const { data, error } = await useFetch(usersUrl)
 
   apiError.value = error.value
   users.value = data.value.data
 
+  setUsers()
+}
+
+const setUsers = () => {
   sortUsers()
 
   users.value.forEach((user: IUser) => {
@@ -50,12 +58,10 @@ onBeforeMount(async () => {
       }
     })
   }
-})
+}
 
 const getUser = async (user: IUser) => {
-  const { data, error } = await useFetch(
-    `https://reqres.in/api/users/${user.id}`,
-  )
+  const { data, error } = await useFetch(`${usersUrl}/${user.id}`)
 
   apiError.value = error.value
   activeUser.value = data.value.data
@@ -156,8 +162,35 @@ const sortUsers = () => {
   })
 }
 
-const searchUser = (user: string) => {
-  console.log("search user", user)
+const searchUser = async (user: string) => {
+  const fullName = user.toLowerCase().split(" ")
+
+  const foundUsers: any = []
+
+  await fetchDefaultUsers()
+
+  users.value.forEach((user) => {
+    if (
+      fullName.includes(user.first_name.toLowerCase()) ||
+      fullName.includes(user.last_name.toLowerCase())
+    ) {
+      foundUsers.push(user)
+    }
+  })
+
+  if (foundUsers.length > 0) {
+    users.value = []
+
+    for (const user of foundUsers) {
+      const { data, error } = await useFetch(`${usersUrl}/${user.id}`)
+      apiError.value = error.value
+      users.value.push(data.value.data as never)
+    }
+
+    setUsers()
+  }
+
+  sortUsers()
 }
 </script>
 
