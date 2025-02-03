@@ -16,8 +16,8 @@
   }
 
   &__image {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 70px;
+    max-height: 70px;
     overflow: hidden;
     border-radius: 10px;
 
@@ -49,13 +49,18 @@
     margin: 0 auto;
   }
   
-  @media (min-width: 700px) {
+  @media (min-width: 800px) {
     &__content {
       grid-template-columns: max-content 1fr;
     }
 
     &__info {
       text-align: left;
+    }
+
+    &__image {
+      max-width: 200px;
+      max-height: 200px;
     }
   }
 }

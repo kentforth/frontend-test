@@ -207,6 +207,7 @@ const updateUsers = async () => {
       :error="apiError"
       :active-user-id="activeUserId"
       :is-rating-tab="isRatingTab"
+      :active-user="activeUser as IUser"
       @get-user="getUser"
       @set-active-tab="setActiveTab"
       @search-user="searchUser"
@@ -231,15 +232,14 @@ const updateUsers = async () => {
 
 <style lang="scss" scoped>
 .home {
-  display: flex;
+  display: grid;
+  grid-template-columns: 100% 1fr;
   align-items: center;
 
   &__content {
     display: none;
     padding: 0 16px;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+    max-width: 100%;
   }
 
   &__select {
@@ -248,8 +248,12 @@ const updateUsers = async () => {
   }
 
   @media (min-width: 601px) {
+    grid-template-columns: max-content 1fr;
+
     &__content {
       display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

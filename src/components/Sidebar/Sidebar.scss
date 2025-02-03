@@ -2,6 +2,7 @@
   width: 100%;
   height: 100svh;
   background: $white;
+  overflow: hidden;
   box-shadow:
           rgba(14, 30, 37, 0.12) 0 0 4px 0,
           rgba(14, 30, 37, 0.32) 0 0 16px 0;
@@ -10,11 +11,12 @@
     display: none;
     position: fixed;
     top: 20px;
-    left: calc($sidebar-width - 30px);
+    left: calc($sidebar-width - 4px);
     background: $lightblue;
     width: 24px;
     height: 50px;
     cursor: pointer;
+    z-index: 996;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     box-shadow:
@@ -27,7 +29,7 @@
     }
 
     &--folded {
-      left: calc($sidebar-fold-width - 5px);
+      left: $sidebar-fold-width - 1px;
     }
 
   }
@@ -74,10 +76,9 @@
   }
 
   &__footer-user-info {
-    height: 100%;
+    height: max-content;
     display: none;
     margin-bottom: 16px;
-    background: red;
 
     &--active {
       display: block;
@@ -90,10 +91,15 @@
   }
 
   @media (min-width: 601px) {
-    width: $sidebar-width;
+    width: calc($sidebar-width - 100px);
 
     &__btn-fold {
       display: block;
+      left: calc($sidebar-width - 104px);
+
+      &--folded {
+        left: $sidebar-fold-width;
+      }
     }
 
     &__fold {
@@ -106,7 +112,19 @@
     }
   }
 
-  &--folded {
-    width: $sidebar-fold-width;
+  @media (min-width: 700px) {
+    width: $sidebar-width;
+
+    &__btn-fold {
+      left: calc($sidebar-width - 4px);
+
+      &--folded {
+        left: $sidebar-fold-width;
+      }
+    }
+
+    &--folded {
+      width: $sidebar-fold-width;
+    }
   }
 }
