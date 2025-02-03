@@ -27,10 +27,20 @@ const activeUserId = computed(() => {
 })
 
 onBeforeMount(async () => {
+  await fetchDefaultUsers()
+})
+
+const fetchDefaultUsers = async () => {
   const { data, error } = await useFetch(usersUrl)
 
   apiError.value = error.value
   users.value = data.value.data
+
+  setUsers()
+}
+
+const setUsers = () => {
+  sortUsers()
 
   users.value.forEach((user: IUser) => {
     user.rating = 0
@@ -48,12 +58,10 @@ onBeforeMount(async () => {
       }
     })
   }
-})
+}
 
 const getUser = async (user: IUser) => {
-  const { data, error } = await useFetch(
-    `https://reqres.in/api/users/${user.id}`,
-  )
+  const { data, error } = await useFetch(`${usersUrl}/${user.id}`)
 
   apiError.value = error.value
   activeUser.value = data.value.data
@@ -145,7 +153,44 @@ const sortUsers = () => {
     return
   }
 
-  users.value = users.value.sort()
+  users.value = users.value.sort((a, b) => {
+    if (a.last_name.toLowerCase() < b.last_name.toLowerCase()) {
+      return -1
+    }
+
+    return 0
+  })
+}
+
+const searchUser = async (user: string) => {
+  const fullName = user.toLowerCase().split(" ")
+
+  const foundUsers: any = []
+
+  await fetchDefaultUsers()
+
+  users.value.forEach((user) => {
+    if (
+      fullName.includes(user.first_name.toLowerCase()) ||
+      fullName.includes(user.last_name.toLowerCase())
+    ) {
+      foundUsers.push(user)
+    }
+  })
+
+  if (foundUsers.length > 0) {
+    users.value = []
+
+    for (const user of foundUsers) {
+      const { data, error } = await useFetch(`${usersUrl}/${user.id}`)
+      apiError.value = error.value
+      users.value.push(data.value.data as never)
+    }
+
+    setUsers()
+  }
+
+  sortUsers()
 }
 </script>
 
@@ -158,6 +203,7 @@ const sortUsers = () => {
       :is-rating-tab="isRatingTab"
       @get-user="getUser"
       @set-active-tab="setActiveTab"
+      @search-user="searchUser"
     />
 
     <div class="home__content">
